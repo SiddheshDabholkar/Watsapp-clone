@@ -1,33 +1,39 @@
-import React from "react";
-import { Text, StyleSheet, View, Dimensions } from "react-native";
+import React, { useContext } from "react";
+import { Text, StyleSheet, View, Dimensions, FlatList } from "react-native";
 import { Popover } from "react-native-popper";
+import { PopupContext } from "../../context/PopupContext";
 
 const { width, height } = Dimensions.get("window");
 
-const CallsData = [{ name: "Clear call log" }, { name: "Setting" }];
-const StatusData = [{ name: "Status privacy" }, { name: "Setting" }];
+const CallsData = [{ id: "1", name: "Clear call log" }, { id: "2", name: "Setting" }];
+const StatusData = [{ id: "1", name: "Status privacy" }, { id: "2", name: "Setting" }];
 const ChatsData = [
-  { name: "New Group" },
-  { name: "New Broadcast" },
-  { name: "Linked devices" },
-  { name: "Starred messages" },
-  { name: "Payments" },
-  { name: "Setting" },
+  { id: "1", name: "New Group" },
+  { id: "2", name: "New Broadcast" },
+  { id: "3", name: "Linked devices" },
+  { id: "4", name: "Starred messages" },
+  { id: "5", name: "Payments" },
+  { id: "6", name: "Setting" },
 ];
 
-export default function HeaderPopover({ navigation }) {
-  console.log(navigation);
+export default function HeaderPopover() {
+  const { CurrentTabName, setCurrentTabName } = useContext(PopupContext)
+  const activeTab = CurrentTabName.activeTab
+  const renderItem = ({ item }) => {
+    return (
+      <Text style={{ color: "#000" }}>{item.name}</Text>
+    )
+  };
   return (
     <>
       <Popover.Backdrop />
       <Popover.Content>
         <View style={styles.Container}>
-          <Text>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste nulla
-            inventore ipsam dolor, porro cumque tempore omnis modi consequatur
-            sed ab. Praesentium placeat, asperiores aut aliquid vitae illum ipsa
-            delectus!
-          </Text>
+          <FlatList
+            data={activeTab === "CALLS" ? CallsData : activeTab === "CHATS" ? ChatsData : activeTab === "STATUS" ? StatusData : null}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+          />
         </View>
       </Popover.Content>
     </>
@@ -39,7 +45,7 @@ const styles = StyleSheet.create({
     flex: 2,
     marginRight: 0,
     width: width / 2.4,
-    backgroundColor: "#000",
+    backgroundColor: "#fff",
     borderRadius: 4,
     height: "auto",
   },

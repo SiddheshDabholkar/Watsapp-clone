@@ -13,64 +13,67 @@ import WatsApp from "./screens/WatsApp";
 import Camera from "./screens/camera";
 
 import HeaderPopover from "./components/Popover/HeaderPopover";
+import { PopupContextProvider } from "./context/PopupContext";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="WatsApp"
-            component={WatsApp}
-            options={{
-              headerShadowVisible: false,
-              headerTitleStyle: {
-                fontWeight: "bold",
-              },
-              headerRight: () => (
-                <>
-                  <Pressable>
-                    <TouchableOpacity style={styles.CircleShape}>
-                      <FontAwesome name="search" size={18} color="black" />
-                    </TouchableOpacity>
-                  </Pressable>
-                  <Popover
-                    on="press"
-                    placement="left"
-                    trigger={
-                      <Button
-                        style={styles.CircleShape}
-                        leftIcon={
-                          <Icon
-                            as={Entypo}
-                            name="dots-three-vertical"
-                            size={18}
-                            color="black"
-                          />
-                        }
-                      ></Button>
-                    }
-                    shouldOverlapWithTrigger={true}
-                    shouldCloseOnOutsideClick={true}
-                  >
-                    <HeaderPopover />
-                  </Popover>
-                </>
-              ),
-            }}
-          />
-          <Stack.Screen
-            name="Camera"
-            component={Camera}
-            options={{
-              headerShown: false,
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </NativeBaseProvider>
+    <PopupContextProvider>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="WatsApp"
+              component={WatsApp}
+              options={{
+                headerShadowVisible: false,
+                headerTitleStyle: {
+                  fontWeight: "bold",
+                },
+                headerRight: () => (
+                  <>
+                    <Pressable>
+                      <TouchableOpacity style={styles.CircleShape}>
+                        <FontAwesome name="search" size={18} color="black" />
+                      </TouchableOpacity>
+                    </Pressable>
+                    <Popover
+                      on="press"
+                      placement="left"
+                      trigger={
+                        <Button
+                          style={styles.CircleShape}
+                          leftIcon={
+                            <Icon
+                              as={Entypo}
+                              name="dots-three-vertical"
+                              size={18}
+                              color="black"
+                            />
+                          }
+                        ></Button>
+                      }
+                      shouldOverlapWithTrigger={true}
+                      shouldCloseOnOutsideClick={true}
+                    >
+                      <HeaderPopover />
+                    </Popover>
+                  </>
+                ),
+              }}
+            />
+            <Stack.Screen
+              name="Camera"
+              component={Camera}
+              options={{
+                headerShown: false,
+              }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </PopupContextProvider>
   );
 }
 

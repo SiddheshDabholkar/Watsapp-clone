@@ -9,7 +9,7 @@ const Tab = createMaterialTopTabNavigator();
 export default function WatsApp() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Chats" component={Chats} />
+      <Tab.Screen name="Chats" component={Chats}/>
       <Tab.Screen name="Status" component={Status} />
       <Tab.Screen name="Calls" component={Calls} />
     </Tab.Navigator>
