@@ -19,79 +19,83 @@ import SelectContact from "./screens/SelectContact";
 import HeaderPopover from "./components/Popover/HeaderPopover";
 import { PopupContextProvider } from "./context/PopupContext";
 
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <PopupContextProvider>
-      <NativeBaseProvider>
-        <NavigationContainer>
-          <Stack.Navigator>
-            {/* <Stack.Screen
-              name="WatsApp"
-              component={WatsApp}
-              options={{
-                headerShadowVisible: false,
-                headerTitleStyle: {
-                  fontWeight: "bold",
-                },
-                headerRight: () => (
-                  <>
-                    <Pressable>
-                      <TouchableOpacity style={styles.CircleShape}>
-                        <FontAwesome name="search" size={18} color="black" />
-                      </TouchableOpacity>
-                    </Pressable>
-                    <Popover
-                      on="press"
-                      placement="left"
-                      trigger={
-                        <Button
-                          style={styles.CircleShape}
-                          leftIcon={
-                            <Icon
-                              as={Entypo}
-                              name="dots-three-vertical"
-                              size={18}
-                              color="black"
-                            />
-                          }
-                        ></Button>
-                      }
-                      shouldOverlapWithTrigger={true}
-                      shouldCloseOnOutsideClick={true}
-                    >
-                      <HeaderPopover />
-                    </Popover>
-                  </>
-                ),
-              }}
-            />
-            <Stack.Screen
-              name="Camera"
-              component={Camera}
-            />
-            <Stack.Screen
-              name="About"
-              component={About}
-            />
-            <Stack.Screen
-              name="Archieved"
-              component={Archieved}
-            />
-            <Stack.Screen
-              name="Profile"
-              component={Profile}
-            /> */}
-            <Stack.Screen
-              name="SelectContact"
-              component={SelectContact}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </NativeBaseProvider>
-    </PopupContextProvider>
+    <>
+      <PopupContextProvider>
+        <NativeBaseProvider>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen
+                name="WatsApp"
+                component={WatsApp}
+                options={{
+                  headerShadowVisible: false,
+                  headerTitleStyle: {
+                    fontWeight: "bold",
+                  },
+                  headerRight: () => (
+                    <>
+                      <Pressable>
+                        <TouchableOpacity style={styles.CircleShape}>
+                          <FontAwesome name="search" size={18} color="black" />
+                        </TouchableOpacity>
+                      </Pressable>
+                      <Popover
+                        on="press"
+                        placement="left"
+                        trigger={
+                          <Button
+                            style={styles.CircleShape}
+                            leftIcon={
+                              <Icon
+                                as={Entypo}
+                                name="dots-three-vertical"
+                                size={18}
+                                color="black"
+                              />
+                            }
+                          ></Button>
+                        }
+                        shouldOverlapWithTrigger={true}
+                        shouldCloseOnOutsideClick={true}
+                      >
+                        <HeaderPopover />
+                      </Popover>
+                    </>
+                  ),
+                }}
+              />
+              <Stack.Screen
+                name="Camera"
+                component={Camera}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="About"
+                component={About}
+              />
+              <Stack.Screen
+                name="Archieved"
+                component={Archieved}
+              />
+              <Stack.Screen
+                name="Profile"
+                component={Profile}
+              />
+              <Stack.Screen
+                name="SelectContact"
+                component={SelectContact}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </NativeBaseProvider>
+      </PopupContextProvider>
+    </>
   );
 }
 

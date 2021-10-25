@@ -6,7 +6,7 @@ export default function SelectContact() {
   const [contacts, setContacts] = useState([])
   useEffect(async () => {
     const { status } = await Contacts.requestPermissionsAsync();
-    console.log(status)
+    // console.log(status)
     if (status === "granted") {
       const { data } = await Contacts.getContactsAsync({
         fields: [Contacts.Fields.Name],
