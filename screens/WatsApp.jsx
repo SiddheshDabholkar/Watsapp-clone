@@ -7,7 +7,7 @@ import Main from "../components/FAB/Main";
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function WatsApp({ navigation }) {
+export default function WatsApp() {
   return (
     <>
       <Tab.Navigator>
@@ -15,7 +15,7 @@ export default function WatsApp({ navigation }) {
         <Tab.Screen name="Status" component={Status} />
         <Tab.Screen name="Calls" component={Calls} />
       </Tab.Navigator>
-      <Main props={navigation} />
+      <Main />
     </>
   );
 }
