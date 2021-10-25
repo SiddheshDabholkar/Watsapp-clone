@@ -5,15 +5,20 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Text, Pressable, TouchableOpacity, StyleSheet } from "react-native";
 import { Button, Icon } from "native-base";
 import { Popover, Tooltip } from "react-native-popper";
-
+//icons
 import { FontAwesome } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
-
+//screens
 import WatsApp from "./screens/WatsApp";
 import Camera from "./screens/camera";
-
+import About from "./screens/About";
+import Archieved from "./screens/Archieved";
+import Profile from "./screens/Profile";
+import SelectContact from "./screens/SelectContact";
+//components
 import HeaderPopover from "./components/Popover/HeaderPopover";
 import { PopupContextProvider } from "./context/PopupContext";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +28,7 @@ export default function App() {
       <NativeBaseProvider>
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen
+            {/* <Stack.Screen
               name="WatsApp"
               component={WatsApp}
               options={{
@@ -66,9 +71,22 @@ export default function App() {
             <Stack.Screen
               name="Camera"
               component={Camera}
-              options={{
-                headerShown: false,
-              }}
+            />
+            <Stack.Screen
+              name="About"
+              component={About}
+            />
+            <Stack.Screen
+              name="Archieved"
+              component={Archieved}
+            />
+            <Stack.Screen
+              name="Profile"
+              component={Profile}
+            /> */}
+            <Stack.Screen
+              name="SelectContact"
+              component={SelectContact}
             />
           </Stack.Navigator>
         </NavigationContainer>

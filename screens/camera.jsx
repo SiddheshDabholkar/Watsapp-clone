@@ -2,14 +2,10 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
-  useWindowDimensions,
 } from "react-native";
 import { Camera } from "expo-camera";
-import { Box, Center } from "native-base";
 
 export default function CameraComponent() {
-  const { height, width } = useWindowDimensions();
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   useEffect(() => {
