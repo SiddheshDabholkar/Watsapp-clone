@@ -8,6 +8,7 @@ import { Camera } from "expo-camera";
 export default function CameraComponent() {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
