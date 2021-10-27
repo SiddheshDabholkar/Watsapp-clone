@@ -3,11 +3,8 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import Calls from "../tabs/Calls";
 import Status from "../tabs/Status";
 import Chats from "../tabs/Chats";
-import Main from "../components/FAB/Main";
 import { useRoute } from "@react-navigation/core";
 import { PopupContext } from "../context/PopupContext";
-
-
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -23,7 +20,6 @@ export default function WatsApp() {
         <Tab.Screen name="Status" component={Status} />
         <Tab.Screen name="Calls" component={Calls} />
       </Tab.Navigator>
-      {/* <Main /> */}
     </>
   );
 }

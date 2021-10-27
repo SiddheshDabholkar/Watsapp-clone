@@ -15,6 +15,7 @@ import About from "./screens/About";
 import Archieved from "./screens/Archieved";
 import Profile from "./screens/Profile";
 import SelectContact from "./screens/SelectContact";
+import Setting from "./screens/Setting";
 //components
 import HeaderPopover from "./components/Popover/HeaderPopover";
 import { PopupContextProvider } from "./context/PopupContext";
@@ -90,6 +91,10 @@ export default function App() {
               <Stack.Screen
                 name="SelectContact"
                 component={SelectContact}
+              />
+              <Stack.Screen
+                name="Setting"
+                component={Setting}
               />
             </Stack.Navigator>
           </NavigationContainer>

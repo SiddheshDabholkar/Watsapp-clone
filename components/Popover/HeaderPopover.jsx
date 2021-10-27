@@ -7,15 +7,15 @@ import { Box } from "native-base"
 
 const { width, height } = Dimensions.get("window");
 
-const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "", name: "Setting" }];
-const StatusData = [{ id: "1", navigateTo: "", name: "Status privacy" }, { id: "2", navigateTo: "", name: "Setting" }];
+const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "Settings", name: "Setting" }];
+const StatusData = [{ id: "1", navigateTo: "", name: "Status privacy" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
 const ChatsData = [
   { id: "1", navigateTo: "", name: "New Group" },
   { id: "2", navigateTo: "", name: "New Broadcast" },
   { id: "3", navigateTo: "", name: "Linked devices" },
   { id: "4", navigateTo: "", name: "Starred messages" },
   { id: "5", navigateTo: "", name: "Payments" },
-  { id: "6", navigateTo: "", name: "Setting" },
+  { id: "6", navigateTo: "Setting", name: "Setting" },
 ];
 
 export default function HeaderPopover() {
@@ -50,7 +50,7 @@ export default function HeaderPopover() {
 
 const styles = StyleSheet.create({
   Container: {
-    flex: 2,
+    flex: 1,
     marginRight: 0,
     width: width / 2.4,
     backgroundColor: "#3f3f46",
