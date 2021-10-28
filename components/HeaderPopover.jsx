@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Text, StyleSheet, View, Dimensions, FlatList } from "react-native";
 import { Popover } from "react-native-popper";
-import { PopupContext } from "../../context/PopupContext";
-import { useNavigation } from '@react-navigation/native'
-import { Box } from "native-base"
+import { PopupContext } from "../context/PopupContext";
+import { useNavigation } from '@react-navigation/native';
+import { Box } from "native-base";
 
 const { width, height } = Dimensions.get("window");
 
@@ -19,15 +19,15 @@ const ChatsData = [
 ];
 
 export default function HeaderPopover() {
-  const { navigate } = useNavigation()
-  const { CurrentTabName, setCurrentTabName } = useContext(PopupContext)
-  const activeTab = CurrentTabName.activeTab
+  const { navigate } = useNavigation();
+  const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
+  const activeTab = CurrentTabName.activeTab;
   const renderItem = ({ item }) => {
     return (
       <Text style={styles.Text}
         onPress={() => navigate(`${item.navigateTo}`)}
       >{item.name}</Text>
-    )
+    );
   };
   return (
     <>
@@ -41,6 +41,7 @@ export default function HeaderPopover() {
             data={activeTab === "CALLS" ? CallsData : activeTab === "CHATS" ? ChatsData : activeTab === "STATUS" ? StatusData : null}
             renderItem={renderItem}
             keyExtractor={item => item.id}
+
           />
         </Box>
       </Popover.Content>
@@ -63,5 +64,5 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: "#fff",
     fontSize: 16,
-  }
+  },
 });
