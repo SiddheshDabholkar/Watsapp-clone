@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, memo } from "react";
 import { useWindowDimensions, FlatList } from "react-native";
 import { Fab, Icon, VStack, Center, HStack, Box, Avatar, Text, Pressable } from 'native-base';
 import { useIsFocused, useNavigation, } from '@react-navigation/native';
@@ -56,9 +56,7 @@ const renderItem = ({ item }) => {
   );
 };
 
-
-
-export default function Chats() {
+function Chats() {
   const isFocused = useIsFocused();
   const { height, width } = useWindowDimensions();
   const { navigate } = useNavigation();
@@ -120,3 +118,5 @@ export default function Chats() {
     </>
   );
 }
+
+export default memo(Chats);
