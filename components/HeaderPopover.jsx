@@ -49,7 +49,7 @@ export default function HeaderPopover() {
   );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   Container: {
     flex: 1,
     marginRight: 0,
