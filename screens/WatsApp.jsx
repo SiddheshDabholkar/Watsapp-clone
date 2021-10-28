@@ -1,11 +1,11 @@
 import React, { useLayoutEffect } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Pressable, TouchableOpacity, StyleSheet } from "react-native";
-import { Button, Icon } from "native-base";
-import { Popover } from "react-native-popper";
 //icons
-import { FontAwesome, Entypo } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
+
 import HeaderPopover from "../components/HeaderPopover";
+import PopoverThreeButton from "../components/PopoverThreeButton";
 
 import Calls from "../tabs/Calls";
 import Status from "../tabs/Status";
@@ -27,27 +27,9 @@ export default function WatsApp({ navigation }) {
               <FontAwesome name="search" size={18} color="black" />
             </TouchableOpacity>
           </Pressable>
-          <Popover
-            on="press"
-            placement="left"
-            trigger={
-              <Button
-                style={styles.CircleShape}
-                leftIcon={
-                  <Icon
-                    as={Entypo}
-                    name="dots-three-vertical"
-                    size={18}
-                    color="black"
-                  />
-                }
-              ></Button>
-            }
-            shouldOverlapWithTrigger={true}
-            shouldCloseOnOutsideClick={true}
-          >
+          <PopoverThreeButton>
             <HeaderPopover />
-          </Popover>
+          </PopoverThreeButton>
         </>
       ),
     });

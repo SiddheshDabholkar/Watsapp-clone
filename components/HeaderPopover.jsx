@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { Text, StyleSheet, View, Dimensions, FlatList } from "react-native";
-import { Popover } from "react-native-popper";
 import { PopupContext } from "../context/PopupContext";
 import { useNavigation } from '@react-navigation/native';
-import { Box } from "native-base";
 
 const { width, height } = Dimensions.get("window");
 
@@ -31,20 +29,12 @@ export default function HeaderPopover() {
   };
   return (
     <>
-      <Popover.Backdrop />
-      <Popover.Content >
-        <Box
-          bg="gray.700"
-          style={styles.Container}
-        >
-          <FlatList
-            data={activeTab === "CALLS" ? CallsData : activeTab === "CHATS" ? ChatsData : activeTab === "STATUS" ? StatusData : null}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
+      <FlatList
+        data={activeTab === "CALLS" ? CallsData : activeTab === "CHATS" ? ChatsData : activeTab === "STATUS" ? StatusData : null}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
 
-          />
-        </Box>
-      </Popover.Content>
+      />
     </>
   );
 }
