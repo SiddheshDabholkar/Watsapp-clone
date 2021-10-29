@@ -1,18 +1,18 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, memo } from "react";
 import { Text, View, Button } from "react-native";
 import { Fab, Icon } from 'native-base';
 import { useIsFocused, useNavigation, } from '@react-navigation/native';
 import { PopupContext } from "../context/PopupContext";
 import { Ionicons } from '@expo/vector-icons';
 
-export default function Status() {
+function Status() {
   const isFocused = useIsFocused();
-  const { navigate } = useNavigation()
-  const { CurrentTabName, setCurrentTabName } = useContext(PopupContext)
+  const { navigate } = useNavigation();
+  const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
 
   useEffect(() => {
-    isFocused && setCurrentTabName({ type: "STATUS", payload: "STATUS" })
-  }, [isFocused])
+    isFocused && setCurrentTabName({ type: "STATUS", payload: "STATUS" });
+  }, [isFocused]);
 
   return (
     <>
@@ -31,3 +31,5 @@ export default function Status() {
     </>
   );
 }
+
+export default memo(Status);

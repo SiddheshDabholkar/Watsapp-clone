@@ -63,19 +63,8 @@ function Archieved({ navigation }) {
 
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight: () => (
-                <>
-                    <PopoverThreeButton>
-                        <FlatList
-                            renderItem={({ item }) => (
-                                <Text color="#fff">{item.name}</Text>
-                            )}
-                            keyExtractor={item => item.id}
-                            data={ArchieveMoreList}
-                        />
-                    </PopoverThreeButton>
-                </>
-            )
+            headerRight: () => <PopoverThreeButton data={ArchieveMoreList} />
+
         });
     }, [navigation]);
 

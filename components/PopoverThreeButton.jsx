@@ -1,12 +1,19 @@
 import React from 'react';
 import { Popover } from "react-native-popper";
-import { Button, Icon, Box } from 'native-base';
-import { StyleSheet, Dimensions } from 'react-native';
+import { Button, Icon, Box, Text } from 'native-base';
+import { StyleSheet, Dimensions, FlatList } from 'react-native';
 import { Entypo } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
-export default function PopoverThreeButton({ children }) {
+export default function PopoverThreeButton({ children, data }) {
+    const renderItem = ({ item }) => {
+        return (
+            <Text style={styles.Text}
+                onPress={() => navigate(`${item.navigateTo}`)}
+            >{item.name}</Text>
+        );
+    };
     return (
         <Popover
             on="press"
@@ -33,7 +40,15 @@ export default function PopoverThreeButton({ children }) {
                     bg="gray.700"
                     style={styles.Container}
                 >
+                    {data &&
+                        <FlatList
+                            data={data}
+                            keyExtractor={item => item.id}
+                            renderItem={renderItem}
+                        />
+                    }
                     {children}
+
                 </Box>
             </Popover.Content>
         </Popover>
