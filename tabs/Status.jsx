@@ -1,9 +1,28 @@
 import React, { useContext, useEffect, memo } from "react";
-import { Text, View, Button } from "react-native";
-import { Fab, Icon } from 'native-base';
+import { View } from "react-native";
+import { Fab, Icon, Box, Text, Button, VStack, ScrollView, Pressable, HStack, Avatar, Center, Circle, FlatList } from 'native-base';
 import { useIsFocused, useNavigation, } from '@react-navigation/native';
 import { PopupContext } from "../context/PopupContext";
 import { Ionicons } from '@expo/vector-icons';
+
+const RecentUpdates = [
+  { noOfStatuses: 1, id: 1, name: "one", time: "11/1/21" },
+  { noOfStatuses: 4, id: 2, name: "two", time: "10/2/21" },
+  { noOfStatuses: 2, id: 3, name: "three", time: "9/3/21" },
+  { noOfStatuses: 7, id: 4, name: "four", time: "5/5/21" },
+  { noOfStatuses: 9, id: 5, name: "five", time: "2/2/21" },
+  { noOfStatuses: 1, id: 6, name: "six", time: "8/8/20" },
+  { noOfStatuses: 2, id: 7, name: "seven", time: "4/3/21" },
+];
+const ViewedUpdates = [
+  { noOfStatuses: 4, id: 1, name: "one", time: "11/1/21" },
+  { noOfStatuses: 4, id: 2, name: "two", time: "10/2/21" },
+  { noOfStatuses: 6, id: 3, name: "three", time: "9/3/21" },
+  { noOfStatuses: 3, id: 4, name: "four", time: "5/5/21" },
+  { noOfStatuses: 2, id: 5, name: "five", time: "2/2/21" },
+  { noOfStatuses: 1, id: 6, name: "six", time: "8/8/20" },
+  { noOfStatuses: 8, id: 7, name: "seven", time: "4/3/21" },
+];
 
 function Status() {
   const isFocused = useIsFocused();
@@ -14,12 +33,81 @@ function Status() {
     isFocused && setCurrentTabName({ type: "STATUS", payload: "STATUS" });
   }, [isFocused]);
 
+
+  const UploadStatus = () => {
+    return (
+      <>
+        <Pressable onPress={() => navigate("Camera")}>
+          <Center p="4">
+            <HStack >
+              <Box w="15%">
+                <Avatar
+                  bg="lightBlue.400"
+                  source={{
+                    uri: "https://alpha.nativebase.io/img/native-base-icon.png",
+                  }}
+                >
+                  <Avatar.Badge bg="green.500" />
+                </Avatar>
+              </Box>
+              <Box w="85%" alignItems="flex-start">
+                <Text color="#fff" bold>My status</Text>
+                <Text color="#fff">Tap to add status update</Text>
+              </Box>
+            </HStack>
+          </Center>
+        </Pressable>
+      </>
+    );
+  };
+  const renderItem = ({ item }) => {
+    return (
+      <Pressable mt="2" p="2">
+        <HStack space={3}>
+          <Center w="15%">
+            <Avatar
+              size="55"
+              source={{
+                uri: "https://pbs.twimg.com/profile_images/1188747996843761665/8CiUdKZW_400x400.jpg",
+              }}
+            />
+          </Center>
+          <Center w="85%" alignItems="flex-start">
+            {/* <Box > */}
+            <Text color="#fff" bold>{item.name}</Text>
+            <Text color="#fff">{item.time}</Text>
+            {/* </Box> */}
+          </Center>
+        </HStack>
+      </Pressable>
+    );
+  };
+
   return (
     <>
-      <View>
-        <Button title="Camera" onPress={() => navigate("Camera")} />
-        <Text>lmao</Text>
-      </View>
+      <Box bg="#111827" flex={1}>
+        <VStack >
+          <ScrollView>
+            <UploadStatus />
+            <Box p="3">
+              <Text color="#fff">Recent updates</Text>
+              <FlatList
+                data={RecentUpdates}
+                scrollEnabled={false}
+                keyExtractor={item => item.id}
+                renderItem={renderItem}
+              />
+              <Text color="#fff">Viewed updates</Text>
+              <FlatList
+                data={ViewedUpdates}
+                scrollEnabled={false}
+                keyExtractor={item => item.id}
+                renderItem={renderItem}
+              />
+            </Box>
+          </ScrollView>
+        </VStack>
+      </Box>
       {isFocused &&
         < Fab
           onPress={() => navigate("Camera")}
