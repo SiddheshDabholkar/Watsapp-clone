@@ -12,6 +12,7 @@ import Profile from "./screens/Profile";
 import SelectContact from "./screens/SelectContact";
 import Setting from "./screens/Setting";
 import CallsInfo from "./screens/CallsInfo";
+import StatusPrivacy from "./screens/StatusPrivacy";
 
 
 const Stack = createNativeStackNavigator();
@@ -57,6 +58,10 @@ export default function App() {
               <Stack.Screen
                 name="Calls Info"
                 component={CallsInfo}
+              />
+              <Stack.Screen
+                name="Status privacy"
+                component={StatusPrivacy}
               />
             </Stack.Navigator>
           </NavigationContainer>

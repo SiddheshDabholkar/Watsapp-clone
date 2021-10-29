@@ -35,67 +35,70 @@ export default function Setting({ navigation }) {
     };
 
     return (
+        <Box bg="#111827" height={height}>
 
-        <VStack>
-            <HStack mt="4">
-                <Pressable onPress={() => navigation.navigate("Profile")}>
-                    <HStack space={5}>
-                        <Box>
-                            <Avatar
-                                size="lg"
-                                bg="amber.500"
-                                source={{
-                                    uri: "https://pbs.twimg.com/profile_images/1309797238651060226/18cm6VhQ_400x400.jpg",
-                                }}
-                            />
-                        </Box>
-                        <Center width="65%" alignItems="flex-start">
-                            <Box>
-
-                                <Text color="#fff" fontSize="md" bold>bruh</Text>
-                                <Text color="#fff" fontSize="sm">hmm</Text>
+            <VStack >
+                <HStack mt="4">
+                    <Pressable onPress={() => navigation.navigate("Profile")}>
+                        <HStack space={5}>
+                            <Box ml="4">
+                                <Avatar
+                                    size="lg"
+                                    bg="amber.500"
+                                    source={{
+                                        uri: "https://pbs.twimg.com/profile_images/1309797238651060226/18cm6VhQ_400x400.jpg",
+                                    }}
+                                />
                             </Box>
-                        </Center>
-                    </HStack>
-                </Pressable>
-                <Center>
-                    <Box>
-                        <Pressable>
-                            <Ionicons name="qr-code" size={24} color="#fff" />
-                        </Pressable>
-                    </Box>
-                </Center>
-            </HStack>
-            <Divider thickness={1} bg="#404040" mt="5" />
-            <FlatList
-                data={List}
-                renderItem={renderItem}
-                keyExtractor={item => item.id}
-            />
-            <Divider thickness={1} bg="#404040" mt="10" />
-            <HStack space={10} mt="7">
-                <Box ml="6">
-                    <Icon
-                        as={MaterialIcons}
-                        name="people"
-                        size="sm"
-                        color="white"
-                    />
-                </Box>
-                <Box>
-                    <Text color="#fff" fontSize="md" bold>Invite a friend</Text>
-                </Box>
-            </HStack>
-            <Box mt={16}>
-                <VStack>
+                            <Center width="65%" alignItems="flex-start">
+                                <Box>
+
+                                    <Text color="#fff" fontSize="md" bold>bruh</Text>
+                                    <Text color="#fff" fontSize="sm">hmm</Text>
+                                </Box>
+                            </Center>
+                        </HStack>
+                    </Pressable>
                     <Center>
-                        <Center>
-                            <Text color="#fff" fontSize="sm">from</Text>
-                        </Center>
-                        <Text color="#fff" fontSize="md" bold>FACEBOOK</Text>
+                        <Box>
+                            <Pressable>
+                                <Ionicons name="qr-code" size={24} color="#fff" />
+                            </Pressable>
+                        </Box>
                     </Center>
-                </VStack>
-            </Box>
-        </VStack>
+                </HStack>
+                <Divider thickness={1} bg="#404040" mt="5" />
+                <FlatList
+                    data={List}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.id}
+                />
+                <Divider thickness={1} bg="#404040" mt="10" />
+                <HStack space={10} mt="7">
+                    <Box ml="6">
+                        <Icon
+                            as={MaterialIcons}
+                            name="people"
+                            size="sm"
+                            color="white"
+                        />
+                    </Box>
+                    <Box>
+                        <Text color="#fff" fontSize="md" bold>Invite a friend</Text>
+                    </Box>
+                </HStack>
+                <Box mt={16}>
+                    <VStack>
+                        <Center>
+                            <Center>
+                                <Text color="#fff" fontSize="sm">from</Text>
+                            </Center>
+                            <Text color="#fff" fontSize="md" bold>FACEBOOK</Text>
+                        </Center>
+                    </VStack>
+                </Box>
+            </VStack>
+        </Box>
+
     );
 }

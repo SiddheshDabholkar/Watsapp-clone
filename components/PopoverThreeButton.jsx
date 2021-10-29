@@ -3,10 +3,12 @@ import { Popover } from "react-native-popper";
 import { Button, Icon, Box, Text } from 'native-base';
 import { StyleSheet, Dimensions, FlatList } from 'react-native';
 import { Entypo } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/core';
 
 const { width, height } = Dimensions.get("window");
 
 export default function PopoverThreeButton({ children, data }) {
+    const { navigate } = useNavigation();
     const renderItem = ({ item }) => {
         return (
             <Text style={styles.Text}

@@ -8,8 +8,8 @@ import PopoverThreeButton from "../components/PopoverThreeButton";
 import { PopupContext } from "../context/PopupContext";
 
 
-const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "Settings", name: "Setting" }];
-const StatusData = [{ id: "1", navigateTo: "", name: "Status privacy" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
+const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
+const StatusData = [{ id: "1", navigateTo: "Status privacy", name: "Status privacy" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
 const ChatsData = [
   { id: "1", navigateTo: "", name: "New Group" },
   { id: "2", navigateTo: "", name: "New Broadcast" },
