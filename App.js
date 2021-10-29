@@ -11,6 +11,7 @@ import Archieved from "./screens/Archieved";
 import Profile from "./screens/Profile";
 import SelectContact from "./screens/SelectContact";
 import Setting from "./screens/Setting";
+import CallsInfo from "./screens/CallsInfo";
 
 
 const Stack = createNativeStackNavigator();
@@ -52,6 +53,10 @@ export default function App() {
               <Stack.Screen
                 name="Setting"
                 component={Setting}
+              />
+              <Stack.Screen
+                name="Calls Info"
+                component={CallsInfo}
               />
             </Stack.Navigator>
           </NavigationContainer>

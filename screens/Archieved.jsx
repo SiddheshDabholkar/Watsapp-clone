@@ -1,8 +1,6 @@
 import React, { memo, useLayoutEffect } from 'react';
-import { FlatList, useWindowDimensions, TouchableOpacity } from 'react-native';
+import { FlatList, useWindowDimensions } from 'react-native';
 import { Fab, Icon, VStack, Center, HStack, Box, Avatar, Text, Pressable } from 'native-base';
-import { styles } from '../components/HeaderPopover';
-import { FontAwesome, Entypo } from "@expo/vector-icons";
 import PopoverThreeButton from '../components/PopoverThreeButton';
 
 const ArchieveMoreList = [

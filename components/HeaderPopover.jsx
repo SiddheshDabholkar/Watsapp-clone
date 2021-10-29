@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { Text, StyleSheet, View, Dimensions, FlatList } from "react-native";
 import { PopupContext } from "../context/PopupContext";
 import { useNavigation } from '@react-navigation/native';
+import { styles } from "./PopoverThreeButton";
 
 const { width, height } = Dimensions.get("window");
+
 
 const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "Settings", name: "Setting" }];
 const StatusData = [{ id: "1", navigateTo: "", name: "Status privacy" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
@@ -39,20 +41,3 @@ export default function HeaderPopover() {
   );
 }
 
-export const styles = StyleSheet.create({
-  Container: {
-    flex: 1,
-    marginRight: 0,
-    width: width / 2.4,
-    backgroundColor: "#3f3f46",
-    borderRadius: 4,
-    padding: 20,
-    height: "auto",
-  },
-  Text: {
-    marginTop: 10,
-    marginBottom: 10,
-    color: "#fff",
-    fontSize: 16,
-  },
-});

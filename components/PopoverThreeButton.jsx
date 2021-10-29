@@ -2,7 +2,7 @@ import React from 'react';
 import { Popover } from "react-native-popper";
 import { Button, Icon, Box } from 'native-base';
 import { StyleSheet, Dimensions } from 'react-native';
-import { FontAwesome, Entypo } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
@@ -40,7 +40,7 @@ export default function PopoverThreeButton({ children }) {
     );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     CircleShape: {
         justifyContent: "center",
         alignItems: "center",
