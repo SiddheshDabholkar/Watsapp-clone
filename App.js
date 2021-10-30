@@ -17,6 +17,7 @@ import HideStatus from "./screens/HideStatus";
 import ShareStatus from "./screens/ShareStatus";
 import ContactsHelp from "./screens/ContactsHelp";
 import ArchiveSettings from "./screens/ArchiveSettings";
+import ProfilePhoto from "./screens/ProfilePhoto";
 
 const Stack = createNativeStackNavigator();
 
@@ -83,6 +84,10 @@ export default function App() {
               <Stack.Screen
                 name="Archive settings"
                 component={ArchiveSettings}
+              />
+              <Stack.Screen
+                name="Profile Photo"
+                component={ProfilePhoto}
               />
             </Stack.Navigator>
           </NavigationContainer>
