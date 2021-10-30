@@ -4,7 +4,7 @@ import { Fab, Icon, VStack, Center, HStack, Box, Avatar, Text, Pressable } from 
 import PopoverThreeButton from '../components/PopoverThreeButton';
 
 const ArchieveMoreList = [
-    { id: 1, name: "Archive Setting", navigateTo: "" }
+    { id: 1, name: "Archive Setting", navigateTo: "Archive settings" }
 ];
 
 const ChatsList = [

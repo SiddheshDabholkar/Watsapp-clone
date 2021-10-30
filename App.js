@@ -16,6 +16,7 @@ import StatusPrivacy from "./screens/StatusPrivacy";
 import HideStatus from "./screens/HideStatus";
 import ShareStatus from "./screens/ShareStatus";
 import ContactsHelp from "./screens/ContactsHelp";
+import ArchiveSettings from "./screens/ArchiveSettings";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +27,7 @@ export default function App() {
         <NativeBaseProvider>
           <NavigationContainer>
             <Stack.Navigator>
-              {/* <Stack.Screen
+              <Stack.Screen
                 name="WatsApp"
                 component={WatsApp}
               />
@@ -74,10 +75,14 @@ export default function App() {
               <Stack.Screen
                 name="Hide status from..."
                 component={HideStatus}
-              /> */}
+              />
               <Stack.Screen
                 name="Contacts help"
                 component={ContactsHelp}
+              />
+              <Stack.Screen
+                name="Archive settings"
+                component={ArchiveSettings}
               />
             </Stack.Navigator>
           </NavigationContainer>
