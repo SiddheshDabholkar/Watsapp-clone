@@ -13,6 +13,8 @@ import SelectContact from "./screens/SelectContact";
 import Setting from "./screens/Setting";
 import CallsInfo from "./screens/CallsInfo";
 import StatusPrivacy from "./screens/StatusPrivacy";
+import HideStatus from "./screens/HideStatus";
+import ShareStatus from "./screens/ShareStatus";
 
 
 const Stack = createNativeStackNavigator();
@@ -62,6 +64,16 @@ export default function App() {
               <Stack.Screen
                 name="Status privacy"
                 component={StatusPrivacy}
+              />
+
+              <Stack.Screen
+                name="Share status with..."
+                component={ShareStatus}
+              />
+
+              <Stack.Screen
+                name="Hide status from..."
+                component={HideStatus}
               />
             </Stack.Navigator>
           </NavigationContainer>

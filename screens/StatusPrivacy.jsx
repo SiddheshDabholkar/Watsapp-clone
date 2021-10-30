@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Text, Center, VStack, HStack, Radio, Button } from 'native-base';
 
-export default function StatusPrivacy() {
+export default function StatusPrivacy({ navigation }) {
+    const [value, setValue] = useState("1");
+    useEffect(() => {
+        if (value === "2") {
+            navigation.navigate("Hide status from...");
+        } else if (value === "3") {
+            navigation.navigate("Share status with...");
+        }
+    }, [value]);
     return (
         <Box flex={1} bg="#111827">
             <Center>
@@ -15,7 +23,10 @@ export default function StatusPrivacy() {
                             <Radio.Group
                                 defaultValue="1"
                                 name="myRadioGroup"
-                                accessibilityLabel="Pick your favorite number"
+                                accessibilityLabel="select status privacy"
+                                onChange={(nextValue) => {
+                                    setValue(nextValue);
+                                }}
                             >
                                 <Radio value="1" my={1} >
                                     <Text ml={5} color="#fff" fontSize={16}>
