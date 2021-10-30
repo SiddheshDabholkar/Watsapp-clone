@@ -34,9 +34,7 @@ const renderItem = ({ item }) => {
           <Center w="20%">
             <Box>
               <Avatar
-                source={{
-                  uri: "https://pbs.twimg.com/profile_images/1188747996843761665/8CiUdKZW_400x400.jpg",
-                }}
+                bg="blue.500"
               />
             </Box>
           </Center>

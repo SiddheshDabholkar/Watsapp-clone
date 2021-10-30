@@ -43,9 +43,7 @@ function Status() {
               <Box w="15%">
                 <Avatar
                   bg="lightBlue.400"
-                  source={{
-                    uri: "https://alpha.nativebase.io/img/native-base-icon.png",
-                  }}
+
                 >
                   <Avatar.Badge bg="green.500" />
                 </Avatar>
@@ -67,9 +65,7 @@ function Status() {
           <Center w="15%">
             <Avatar
               size="55"
-              source={{
-                uri: "https://pbs.twimg.com/profile_images/1188747996843761665/8CiUdKZW_400x400.jpg",
-              }}
+              bg="lightBlue.400"
             />
           </Center>
           <Center w="85%" alignItems="flex-start">

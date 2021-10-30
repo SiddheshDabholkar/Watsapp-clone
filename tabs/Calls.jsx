@@ -40,14 +40,14 @@ function Calls({ route }) {
     const { callOrVideoCall, received, id, name, time, date, noOfCalls, IncomingOrOutgoing } = item;
     return (
       <>
-        <Pressable onPress={() => navigate("Calls Info")}>
+        <Pressable onPress={() => navigate("Calls Info", {
+          callOrVideoCall, received, id, name, time, date, noOfCalls, IncomingOrOutgoing
+        })}>
           <HStack mt="5">
             <Center w="20%">
               <Box>
                 <Avatar
-                  source={{
-                    uri: "https://pbs.twimg.com/profile_images/1188747996843761665/8CiUdKZW_400x400.jpg",
-                  }}
+                  bg="blue.500"
                 />
               </Box>
             </Center>
