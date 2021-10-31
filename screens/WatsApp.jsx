@@ -13,7 +13,7 @@ const StatusData = [{ id: "1", navigateTo: "Status privacy", name: "Status priva
 const ChatsData = [
   { id: "1", navigateTo: "", name: "New Group" },
   { id: "2", navigateTo: "", name: "New Broadcast" },
-  { id: "3", navigateTo: "", name: "Linked devices" },
+  { id: "3", navigateTo: "Linked devices", name: "Linked devices" },
   { id: "4", navigateTo: "", name: "Starred messages" },
   { id: "5", navigateTo: "", name: "Payments" },
   { id: "6", navigateTo: "Setting", name: "Setting" },

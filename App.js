@@ -18,6 +18,7 @@ import ShareStatus from "./screens/ShareStatus";
 import ContactsHelp from "./screens/ContactsHelp";
 import ArchiveSettings from "./screens/ArchiveSettings";
 import ProfilePhoto from "./screens/ProfilePhoto";
+import Linkedevices from "./screens/Linkedevices";
 
 const Stack = createNativeStackNavigator();
 
@@ -88,6 +89,10 @@ export default function App() {
               <Stack.Screen
                 name="Profile Photo"
                 component={ProfilePhoto}
+              />
+              <Stack.Screen
+                name="Linked devices"
+                component={Linkedevices}
               />
             </Stack.Navigator>
           </NavigationContainer>
