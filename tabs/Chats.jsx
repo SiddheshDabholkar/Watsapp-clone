@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, memo } from "react";
+import React, { useContext, useEffect, memo, useLayoutEffect } from "react";
 import { useWindowDimensions, FlatList } from "react-native";
 import { Fab, Icon, VStack, Center, HStack, Box, Avatar, Text, Pressable } from 'native-base';
 import { useIsFocused, useNavigation, } from '@react-navigation/native';
@@ -60,7 +60,7 @@ function Chats() {
   const { navigate } = useNavigation();
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     isFocused && setCurrentTabName({ type: "CHATS", payload: "CHATS" });
   }, [isFocused]);
 

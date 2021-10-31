@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, memo } from "react";
+import React, { useContext, useEffect, memo, useLayoutEffect } from "react";
 import { FlatList, useWindowDimensions } from "react-native";
 import { Fab, Icon, VStack, Center, HStack, Box, Avatar, Text, Pressable } from 'native-base';
 import { useIsFocused, useNavigation, useRoute } from '@react-navigation/native';
@@ -32,7 +32,7 @@ function Calls({ route }) {
   const { navigate } = useNavigation();
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     isFocused && setCurrentTabName({ type: "CALLS", payload: "CALLS" });
   }, [isFocused]);
 

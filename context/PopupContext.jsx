@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useMemo, memo } from "react";
+import React, { createContext, useReducer, useMemo } from "react";
 
 
 const initialState = {
@@ -11,13 +11,13 @@ const PopupReducer = (state, action) => {
     switch (action.type) {
         case "CHATS":
             state.activeTab = "CHATS";
-            return { ...state };
+            return state;
         case "STATUS":
             state.activeTab = "STATUS";
-            return { ...state };
+            return state;
         case "CALLS":
             state.activeTab = "CALLS";
-            return { ...state };
+            return state;
         default:
             throw new Error(`Unsupported action type: ${action.type}`);
     }
@@ -26,7 +26,6 @@ const PopupReducer = (state, action) => {
 
 export const PopupContextProvider = ({ children }) => {
     const [CurrentTabName, setCurrentTabName] = useReducer(PopupReducer, initialState);
-    // const value = { CurrentTabName, setCurrentTabName };
     const value = useMemo(() => ({ CurrentTabName, setCurrentTabName }), [CurrentTabName]);
     return (
         <PopupContext.Provider value={value}>

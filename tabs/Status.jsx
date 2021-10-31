@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, memo } from "react";
+import React, { useContext, useEffect, memo, useLayoutEffect } from "react";
 import { SectionList } from "react-native";
 import { Fab, Icon, Box, Text, Button, VStack, ScrollView, Pressable, HStack, Avatar, Center, Circle, FlatList } from 'native-base';
 import { useIsFocused, useNavigation, } from '@react-navigation/native';
@@ -37,7 +37,7 @@ function Status() {
   const { navigate } = useNavigation();
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     isFocused && setCurrentTabName({ type: "STATUS", payload: "STATUS" });
   }, [isFocused]);
 
