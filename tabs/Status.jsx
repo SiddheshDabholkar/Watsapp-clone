@@ -1,27 +1,35 @@
 import React, { useContext, useEffect, memo } from "react";
-import { View } from "react-native";
+import { SectionList } from "react-native";
 import { Fab, Icon, Box, Text, Button, VStack, ScrollView, Pressable, HStack, Avatar, Center, Circle, FlatList } from 'native-base';
 import { useIsFocused, useNavigation, } from '@react-navigation/native';
 import { PopupContext } from "../context/PopupContext";
 import { Ionicons } from '@expo/vector-icons';
 
-const RecentUpdates = [
-  { noOfStatuses: 1, id: 1, name: "one", time: "11/1/21" },
-  { noOfStatuses: 4, id: 2, name: "two", time: "10/2/21" },
-  { noOfStatuses: 2, id: 3, name: "three", time: "9/3/21" },
-  { noOfStatuses: 7, id: 4, name: "four", time: "5/5/21" },
-  { noOfStatuses: 9, id: 5, name: "five", time: "2/2/21" },
-  { noOfStatuses: 1, id: 6, name: "six", time: "8/8/20" },
-  { noOfStatuses: 2, id: 7, name: "seven", time: "4/3/21" },
-];
-const ViewedUpdates = [
-  { noOfStatuses: 4, id: 1, name: "one", time: "11/1/21" },
-  { noOfStatuses: 4, id: 2, name: "two", time: "10/2/21" },
-  { noOfStatuses: 6, id: 3, name: "three", time: "9/3/21" },
-  { noOfStatuses: 3, id: 4, name: "four", time: "5/5/21" },
-  { noOfStatuses: 2, id: 5, name: "five", time: "2/2/21" },
-  { noOfStatuses: 1, id: 6, name: "six", time: "8/8/20" },
-  { noOfStatuses: 8, id: 7, name: "seven", time: "4/3/21" },
+const StatusUpdate = [
+  {
+    title: "Recent updates",
+    data: [
+      { noOfStatuses: 1, id: 1, name: "one", time: "11/1/21" },
+      { noOfStatuses: 4, id: 2, name: "two", time: "10/2/21" },
+      { noOfStatuses: 2, id: 3, name: "three", time: "9/3/21" },
+      { noOfStatuses: 7, id: 4, name: "four", time: "5/5/21" },
+      { noOfStatuses: 9, id: 5, name: "five", time: "2/2/21" },
+      { noOfStatuses: 1, id: 6, name: "six", time: "8/8/20" },
+      { noOfStatuses: 2, id: 7, name: "seven", time: "4/3/21" }
+    ]
+  },
+  {
+    title: "Viewed updates",
+    data: [
+      { noOfStatuses: 4, id: 1, name: "one", time: "11/1/21" },
+      { noOfStatuses: 4, id: 2, name: "two", time: "10/2/21" },
+      { noOfStatuses: 6, id: 3, name: "three", time: "9/3/21" },
+      { noOfStatuses: 3, id: 4, name: "four", time: "5/5/21" },
+      { noOfStatuses: 2, id: 5, name: "five", time: "2/2/21" },
+      { noOfStatuses: 1, id: 6, name: "six", time: "8/8/20" },
+      { noOfStatuses: 8, id: 7, name: "seven", time: "4/3/21" },
+    ]
+  }
 ];
 
 function Status() {
@@ -83,25 +91,15 @@ function Status() {
     <>
       <Box bg="#111827" flex={1}>
         <VStack >
-          <ScrollView>
-            <UploadStatus />
-            <Box p="3">
-              <Text color="#fff">Recent updates</Text>
-              <FlatList
-                data={RecentUpdates}
-                scrollEnabled={false}
-                keyExtractor={item => item.id}
-                renderItem={renderItem}
-              />
-              <Text color="#fff">Viewed updates</Text>
-              <FlatList
-                data={ViewedUpdates}
-                scrollEnabled={false}
-                keyExtractor={item => item.id}
-                renderItem={renderItem}
-              />
-            </Box>
-          </ScrollView>
+          <SectionList
+            ListHeaderComponent={<UploadStatus />}
+            sections={StatusUpdate}
+            keyExtractor={(item, index) => item + index}
+            renderItem={renderItem}
+            renderSectionHeader={({ section: { title } }) => (
+              <Text color="#fff">{title}</Text>
+            )}
+          />
         </VStack>
       </Box>
       {isFocused &&
