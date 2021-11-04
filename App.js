@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { PopupContextProvider } from "./context/PopupContext";
 //screens
 import WatsApp from "./screens/WatsApp";
-import Camera from "./screens/camera";
+import Camera from "./screens/Camera";
 import About from "./screens/About";
 import Archieved from "./screens/Archieved";
 import Profile from "./screens/Profile";
@@ -19,6 +19,8 @@ import ContactsHelp from "./screens/ContactsHelp";
 import ArchiveSettings from "./screens/ArchiveSettings";
 import ProfilePhoto from "./screens/ProfilePhoto";
 import Linkedevices from "./screens/Linkedevices";
+import SeeStatus from "./screens/SeeStatus";
+import ViewContact from "./screens/ViewContact";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,9 +38,6 @@ export default function App() {
               <Stack.Screen
                 name="Camera"
                 component={Camera}
-                options={{
-                  headerShown: false,
-                }}
               />
               <Stack.Screen
                 name="About"
@@ -93,6 +92,14 @@ export default function App() {
               <Stack.Screen
                 name="Linked devices"
                 component={Linkedevices}
+              />
+              <Stack.Screen
+                name="SeeStatus"
+                component={SeeStatus}
+              />
+              <Stack.Screen
+                name="ViewContact"
+                component={ViewContact}
               />
             </Stack.Navigator>
           </NavigationContainer>

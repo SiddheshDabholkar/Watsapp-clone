@@ -68,7 +68,10 @@ function Status() {
   };
   const renderItem = ({ item }) => {
     return (
-      <Pressable mt="2" p="2">
+      <Pressable mt="2" p="2" onPress={() => navigate("SeeStatus", {
+        avatar: 'https://reactnative.dev/img/tiny_logo.png',
+        name: item.name
+      })}>
         <HStack space={3}>
           <Center w="15%">
             <Avatar

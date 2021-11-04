@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/core';
 
 const { width, height } = Dimensions.get("window");
 
-export default function PopoverThreeButton({ children, data }) {
+export default function PopoverThreeButton({ children, data, color }) {
     const { navigate } = useNavigation();
     const renderItem = ({ item }) => {
         return (
@@ -28,7 +28,7 @@ export default function PopoverThreeButton({ children, data }) {
                             as={Entypo}
                             name="dots-three-vertical"
                             size={18}
-                            color="black"
+                            color={color ? color : "#000"}
                         />
                     }
                 ></Button>

@@ -1,11 +1,10 @@
 import React, { useLayoutEffect, memo, useContext } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Pressable, TouchableOpacity, StyleSheet } from "react-native";
-//icons
-import { FontAwesome } from "@expo/vector-icons";
-
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import PopoverThreeButton from "../components/PopoverThreeButton";
 import { PopupContext } from "../context/PopupContext";
+import { Icon, Text, Button } from 'native-base';
 
 
 const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
@@ -22,11 +21,12 @@ const ChatsData = [
 import Calls from "../tabs/Calls";
 import Status from "../tabs/Status";
 import Chats from "../tabs/Chats";
+import Camera from "./Camera";
 
 const Tab = createMaterialTopTabNavigator();
 
 
-function WatsApp({ navigation }) {
+function WatsApp({ navigation, route }) {
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
   const activeTab = CurrentTabName.activeTab;
 
@@ -52,6 +52,14 @@ function WatsApp({ navigation }) {
   return (
     <>
       <Tab.Navigator>
+        {/* <Tab.Screen
+          name="Camera"
+          component={Camera}
+          options={{
+            tabBarShowLabel: false,
+            tabBarIcon: () => (<Icon color="gray.500" as={<Ionicons name="ios-camera" size={24} />} />),
+          }}
+        /> */}
         <Tab.Screen name="Chats" component={Chats} />
         <Tab.Screen name="Status" component={Status} />
         <Tab.Screen name="Calls" component={Calls} />
