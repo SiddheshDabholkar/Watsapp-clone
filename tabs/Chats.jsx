@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, memo, useLayoutEffect } from "react";
 import { useWindowDimensions, FlatList } from "react-native";
 import { Fab, Icon, VStack, Center, HStack, Box, Avatar, Text, Pressable } from 'native-base';
-import { useIsFocused, useNavigation, } from '@react-navigation/native';
+import { useIsFocused, useNavigation, useFocusEffect } from '@react-navigation/native';
 import { PopupContext } from "../context/PopupContext";
 import { MaterialIcons, Feather } from '@expo/vector-icons';
 
@@ -54,7 +54,7 @@ const renderItem = ({ item }) => {
   );
 };
 
-function Chats() {
+function Chats({ route }) {
   const isFocused = useIsFocused();
   const { height, width } = useWindowDimensions();
   const { navigate } = useNavigation();

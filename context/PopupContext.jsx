@@ -11,13 +11,13 @@ const PopupReducer = (state, action) => {
     switch (action.type) {
         case "CHATS":
             state.activeTab = "CHATS";
-            return state;
+            return { ...state };
         case "STATUS":
             state.activeTab = "STATUS";
-            return state;
+            return { ...state };
         case "CALLS":
             state.activeTab = "CALLS";
-            return state;
+            return { ...state };
         default:
             throw new Error(`Unsupported action type: ${action.type}`);
     }
