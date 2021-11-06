@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, memo, useLayoutEffect } from "react";
 import { SectionList } from "react-native";
 import { Fab, Icon, Box, Text, Button, VStack, ScrollView, Pressable, HStack, Avatar, Center, Circle, FlatList } from 'native-base';
-import { useIsFocused, useNavigation, } from '@react-navigation/native';
+import { useIsFocused, useNavigation, useFocusEffect } from '@react-navigation/native';
 import { PopupContext } from "../context/PopupContext";
 import { Ionicons } from '@expo/vector-icons';
 
@@ -32,7 +32,7 @@ const StatusUpdate = [
   }
 ];
 
-function Status() {
+function Status({ route }) {
   const isFocused = useIsFocused();
   const { navigate } = useNavigation();
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
@@ -40,7 +40,6 @@ function Status() {
   useLayoutEffect(() => {
     isFocused && setCurrentTabName({ type: "STATUS", payload: "STATUS" });
   }, [isFocused]);
-
 
   const UploadStatus = () => {
     return (

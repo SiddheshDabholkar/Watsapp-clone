@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, memo, useLayoutEffect } from "react";
 import { FlatList, useWindowDimensions } from "react-native";
 import { Fab, Icon, VStack, Center, HStack, Box, Avatar, Text, Pressable } from 'native-base';
-import { useIsFocused, useNavigation, useRoute } from '@react-navigation/native';
+import { useIsFocused, useNavigation, useRoute, useFocusEffect } from '@react-navigation/native';
 import { PopupContext } from "../context/PopupContext";
-import { MaterialIcons, Ionicons, FontAwesome5, Feather } from '@expo/vector-icons';
+import { MaterialIcons, Ionicons, FontAwesome5, Feather, FontAwesome } from '@expo/vector-icons';
 
 const CallLog = [
   { callOrVideoCall: 1, received: 1, id: 1, name: "one", time: "11.pm", date: "1/1/21", noOfCalls: 1, IncomingOrOutgoing: 1 },
@@ -26,10 +26,13 @@ const CallLog = [
   { callOrVideoCall: 1, received: 1, id: 18, name: "eighteen", time: "11.pm", date: "yesterday", noOfCalls: 1, IncomingOrOutgoing: 1 },
 ];
 
+const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
+
 function Calls({ route }) {
   const { height, width } = useWindowDimensions();
   const isFocused = useIsFocused();
   const { navigate } = useNavigation();
+  const navigation = useNavigation();
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
 
   useLayoutEffect(() => {

@@ -43,23 +43,15 @@ function WatsApp({ navigation, route }) {
               <FontAwesome name="search" size={18} color="black" />
             </TouchableOpacity>
           </Pressable>
-          <PopoverThreeButton data={activeTab === "CALLS" ? CallsData : activeTab === "CHATS" ? ChatsData : activeTab === "STATUS" ? StatusData : null} />
+          <PopoverThreeButton data={activeTab === "CALLS" ? CallsData : activeTab === "CHATS" ? ChatsData : activeTab === "STATUS" && StatusData} />
         </>
       ),
     });
-  }, [navigation, activeTab]);
+  }, [activeTab]);
 
   return (
     <>
       <Tab.Navigator>
-        {/* <Tab.Screen
-          name="Camera"
-          component={Camera}
-          options={{
-            tabBarShowLabel: false,
-            tabBarIcon: () => (<Icon color="gray.500" as={<Ionicons name="ios-camera" size={24} />} />),
-          }}
-        /> */}
         <Tab.Screen name="Chats" component={Chats} />
         <Tab.Screen name="Status" component={Status} />
         <Tab.Screen name="Calls" component={Calls} />
