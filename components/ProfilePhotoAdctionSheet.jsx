@@ -13,41 +13,40 @@ import { MaterialIcons, Entypo, Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
+
+export const OpenImagePickerAsync = async () => {
+    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+        alert("Permission to access camera roll is required!");
+        return;
+    }
+
+    const pickerResult = await ImagePicker.launchImageLibraryAsync();
+    return pickerResult;
+};
+
+export const OpenCamera = async () => {
+    // Ask the user for the permission to access the camera
+    const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+        alert("You've refused to allow this appp to access your camera!");
+        return;
+    }
+
+    const result = await ImagePicker.launchCameraAsync();
+
+    // Explore the result
+    console.log(result);
+
+    if (!result.cancelled) {
+        // setPickedImagePath(result.uri);
+        console.log(result.uri);
+    }
+};
+
 export default function ProfilePhotoAdctionSheet({ isOpen, onOpen, onClose }) {
-
-    let openImagePickerAsync = async () => {
-        let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-
-        if (permissionResult.granted === false) {
-            alert("Permission to access camera roll is required!");
-            return;
-        }
-
-        let pickerResult = await ImagePicker.launchImageLibraryAsync();
-        console.log(pickerResult);
-    };
-
-
-    const openCamera = async () => {
-        // Ask the user for the permission to access the camera
-        const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
-
-        if (permissionResult.granted === false) {
-            alert("You've refused to allow this appp to access your camera!");
-            return;
-        }
-
-        const result = await ImagePicker.launchCameraAsync();
-
-        // Explore the result
-        console.log(result);
-
-        if (!result.cancelled) {
-            // setPickedImagePath(result.uri);
-            console.log(result.uri);
-        }
-    };
-
     return (
         <Actionsheet isOpen={isOpen} onClose={onClose} hideDragIndicator >
             <Actionsheet.Content borderTopRadius="0" bg="#111827">
@@ -70,7 +69,7 @@ export default function ProfilePhotoAdctionSheet({ isOpen, onOpen, onClose }) {
                                 <Center>
                                     <Button
                                         style={styles.Button}
-                                        onPress={openImagePickerAsync}
+                                        onPress={OpenImagePickerAsync}
                                         leftIcon={
                                             <Entypo name="image-inverted" size={24} color="black" />
                                         }>
@@ -83,7 +82,7 @@ export default function ProfilePhotoAdctionSheet({ isOpen, onOpen, onClose }) {
                                     <Button
                                         bg="blue.400"
                                         style={styles.Button}
-                                        onPress={openCamera}
+                                        onPress={OpenCamera}
                                         leftIcon={
                                             <Ionicons name="ios-camera" size={24} color="black" />
                                         } />
