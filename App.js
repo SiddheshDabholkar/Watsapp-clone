@@ -21,6 +21,7 @@ import ProfilePhoto from "./screens/ProfilePhoto";
 import Linkedevices from "./screens/Linkedevices";
 import SeeStatus from "./screens/SeeStatus";
 import ViewContact from "./screens/ViewContact";
+import InviteAFriend from "./screens/InviteAFriend";
 
 const Stack = createNativeStackNavigator();
 
@@ -101,6 +102,11 @@ export default function App() {
                 name="ViewContact"
                 component={ViewContact}
               />
+              <Stack.Screen
+                name="Invite a friend"
+                component={InviteAFriend}
+              />
+
             </Stack.Navigator>
           </NavigationContainer>
         </NativeBaseProvider>
