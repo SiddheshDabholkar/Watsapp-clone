@@ -1,10 +1,7 @@
 import React, { useLayoutEffect, memo, useContext } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { Pressable, TouchableOpacity, StyleSheet } from "react-native";
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import PopoverThreeButton from "../components/PopoverThreeButton";
 import { PopupContext } from "../context/PopupContext";
-import { Icon, Text, Button } from 'native-base';
 
 
 const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
@@ -38,11 +35,6 @@ function WatsApp({ navigation, route }) {
       },
       headerRight: () => (
         <>
-          <Pressable>
-            <TouchableOpacity style={styles.CircleShape}>
-              <FontAwesome name="search" size={18} color="black" />
-            </TouchableOpacity>
-          </Pressable>
           <PopoverThreeButton data={activeTab === "CALLS" ? CallsData : activeTab === "CHATS" ? ChatsData : activeTab === "STATUS" && StatusData} />
         </>
       ),
@@ -60,16 +52,6 @@ function WatsApp({ navigation, route }) {
   );
 }
 
-const styles = StyleSheet.create({
-  CircleShape: {
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 5,
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: "transparent",
-  },
-});
+
 
 export default memo(WatsApp);

@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Popover } from "react-native-popper";
-import { Button, Icon, Box, Text } from 'native-base';
-import { StyleSheet, Dimensions, FlatList } from 'react-native';
+import { Button, Icon, Box, Text, Input } from 'native-base';
+import { StyleSheet, Dimensions, FlatList, TouchableOpacity } from 'react-native';
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/core';
+import { FontAwesome } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get("window");
 
 export default function PopoverThreeButton({ children, data, color }) {
-    const { navigate } = useNavigation();
+    const [show, setShow] = useState(false);
+    const inputRef = useRef(null);
+    const navigation = useNavigation();
+    const { navigate } = navigation;
     const renderItem = ({ item }) => {
         return (
             <Text style={styles.Text}
@@ -16,44 +20,53 @@ export default function PopoverThreeButton({ children, data, color }) {
             >{item.name}</Text>
         );
     };
-    return (
-        <Popover
-            on="press"
-            placement="left"
-            trigger={
-                <Button
-                    style={styles.CircleShape}
-                    leftIcon={
-                        <Icon
-                            as={Entypo}
-                            name="dots-three-vertical"
-                            size={18}
-                            color={color ? color : "#000"}
-                        />
-                    }
-                ></Button>
-            }
-            shouldOverlapWithTrigger={true}
-            shouldCloseOnOutsideClick={true}
-        >
-            <Popover.Backdrop />
-            <Popover.Content>
-                <Box
-                    bg="gray.700"
-                    style={styles.Container}
-                >
-                    {data &&
-                        <FlatList
-                            data={data}
-                            keyExtractor={item => item.id}
-                            renderItem={renderItem}
-                        />
-                    }
-                    {children}
+    const handleSearchPress = () => {
+        setShow(true);
+    };
 
-                </Box>
-            </Popover.Content>
-        </Popover>
+    return (
+        <>
+            <TouchableOpacity onPress={handleSearchPress}>
+                <FontAwesome name="search" size={18} color="black" />
+            </TouchableOpacity>
+            <Popover
+                on="press"
+                placement="left"
+                trigger={
+                    <Button
+                        style={styles.CircleShape}
+                        leftIcon={
+                            <Icon
+                                as={Entypo}
+                                name="dots-three-vertical"
+                                size={18}
+                                color={color ? color : "#000"}
+                            />
+                        }
+                    ></Button>
+                }
+                shouldOverlapWithTrigger={true}
+                shouldCloseOnOutsideClick={true}
+            >
+                <Popover.Backdrop />
+                <Popover.Content>
+                    <Box
+                        bg="gray.700"
+                        style={styles.Container}
+                    >
+                        {data &&
+                            <FlatList
+                                data={data}
+                                keyExtractor={item => item.id}
+                                renderItem={renderItem}
+                            />
+                        }
+                        {children}
+
+                    </Box>
+                </Popover.Content>
+            </Popover>
+        </>
     );
 }
 

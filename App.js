@@ -22,6 +22,7 @@ import Linkedevices from "./screens/Linkedevices";
 import SeeStatus from "./screens/SeeStatus";
 import ViewContact from "./screens/ViewContact";
 import InviteAFriend from "./screens/InviteAFriend";
+import Chat from "./screens/Chat";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,10 @@ export default function App() {
           <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen
+                name="Chat"
+                component={Chat}
+              />
+              {/* <Stack.Screen
                 name="WatsApp"
                 component={WatsApp}
               />
@@ -105,7 +110,7 @@ export default function App() {
               <Stack.Screen
                 name="Invite a friend"
                 component={InviteAFriend}
-              />
+              /> */}
 
             </Stack.Navigator>
           </NavigationContainer>

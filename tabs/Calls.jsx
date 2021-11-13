@@ -30,12 +30,30 @@ const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2
 
 function Calls({ route }) {
   const isFocused = useIsFocused();
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
+  const navigate = navigation.navigate;
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
 
   useLayoutEffect(() => {
     isFocused && setCurrentTabName({ type: "CALLS", payload: "CALLS" });
   }, [isFocused]);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShadowVisible: false,
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+      headerRight: () => (
+        <>
+          <TouchableOpacity >
+            <FontAwesome name="search" size={18} color="black" />
+          </TouchableOpacity>
+          {/* <PopoverThreeButton data={activeTab === "CALLS" ? CallsData : activeTab === "CHATS" ? ChatsData : activeTab === "STATUS" && StatusData} /> */}
+        </>
+      ),
+    });
+  }, []);
 
   const renderItem = ({ item }) => {
     const { callOrVideoCall, received, id, name, time, date, noOfCalls, IncomingOrOutgoing } = item;

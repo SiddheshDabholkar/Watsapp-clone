@@ -3,6 +3,8 @@ import { StyleSheet, TextInput, Pressable } from 'react-native';
 import { Text, VStack, HStack, Button, Actionsheet, Box, Icon, Image, Center } from 'native-base';
 import { MaterialIcons, Ionicons, FontAwesome5, FontAwesome, Entypo } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import ReplyBox from './ReplyBox';
+
 
 export default function StatusReplyModal({ isOpen, onOpen, onClose, img }) {
     const inputRef = useRef(null);
@@ -23,28 +25,30 @@ export default function StatusReplyModal({ isOpen, onOpen, onClose, img }) {
                     <HStack p="2">
                         {/* reply modal */}
                         <VStack w="85%" bg="#111827" p="2" borderRadius="10">
-                            <HStack bg="red.500" borderRadius="6">
-                                <VStack w="85%">
-                                    <HStack>
-                                        <Text color="#fff">bruh</Text>
-                                        <Text bold color="#fff">{'\u2022'}</Text>
-                                        <Text color="#fff">Symbol</Text>
-                                    </HStack>
-                                    <HStack>
-                                        <Ionicons name="image" size={20} color="black" />
-                                        <Text>
-                                            Image
-                                        </Text>
-                                    </HStack>
-                                </VStack>
-                                <VStack w="25%" p="1">
-                                    <Image
-                                        alt="Alternate Text"
-                                        source={{ uri: img }}
-                                        style={styles.image}
-                                    />
-                                </VStack>
-                            </HStack>
+                            {img &&
+                                <HStack bg="red.500" borderRadius="6">
+                                    <VStack w="85%">
+                                        <HStack>
+                                            <Text color="#fff">bruh</Text>
+                                            <Text bold color="#fff">{'\u2022'}</Text>
+                                            <Text color="#fff">Symbol</Text>
+                                        </HStack>
+                                        <HStack>
+                                            <Ionicons name="image" size={20} color="black" />
+                                            <Text>
+                                                Image
+                                            </Text>
+                                        </HStack>
+                                    </VStack>
+                                    <VStack w="25%" p="1">
+                                        <Image
+                                            alt="Alternate Text"
+                                            source={{ uri: img }}
+                                            style={styles.image}
+                                        />
+                                    </VStack>
+                                </HStack>
+                            }
                             <HStack height="8" p="1">
                                 <Box w="10%">
                                     <Center>
