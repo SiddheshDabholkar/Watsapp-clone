@@ -1,8 +1,8 @@
 import React from "react";
 import useContacts from "../hooks/useContacts";
-import { View, FlatList, Pressable } from "react-native";
-import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { Box, Text, VStack, HStack, Avatar, Center } from 'native-base';
+import { View, FlatList, Pressable, TouchableOpacity } from "react-native";
+import { MaterialIcons, MaterialCommunityIcons, Ionicons, FontAwesome5 } from '@expo/vector-icons';
+import { Box, Text, VStack, HStack, Avatar, Center, Icon } from 'native-base';
 
 const HeaderData = [
   { id: 1, icon: <MaterialIcons name="people" size={24} color="black" />, name: "New group", navigateTo: "" },
@@ -14,19 +14,35 @@ const FooterData = [
   { id: 2, icon: <MaterialCommunityIcons name="help-circle" size={30} color="gray" />, name: "Contacts help", navigateTo: "Contacts help" },
 ];
 
-export default function SelectContact() {
+export default function SelectContact({ route }) {
   const contacts = useContacts();
+  const { name } = route.params;
 
   const renderItem = ({ item }) => (
     <Box p={4}>
       <Pressable>
         <HStack space={3}>
-          <Avatar
-            size="md"
-            bg="green.500" />
-          <Center>
+          <Center w="12%">
+            <Avatar
+              size="md"
+              bg="green.500" />
+          </Center>
+          {/* <Center w="68%" alignItems="flex-start"> */}
+          <Center w={name === "calls" ? "68%" : "82%"} alignItems="flex-start">
             <Text color="#fff">{item.name}</Text>
           </Center>
+          {name === "calls" &&
+            <Center w="10%">
+              <HStack space={5}>
+                <TouchableOpacity>
+                  <Icon as={Ionicons} name="md-call" size={5} color="green.500" />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Icon as={FontAwesome5} name="video" size={5} color="green.500" />
+                </TouchableOpacity>
+              </HStack>
+            </Center>
+          }
         </HStack>
       </Pressable>
     </Box>
@@ -81,7 +97,6 @@ export default function SelectContact() {
 
   return (
     <Box flex={1} bg="#111827">
-
       <View>
         <FlatList
           ListHeaderComponent={Header}

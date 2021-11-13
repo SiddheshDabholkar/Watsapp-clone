@@ -67,7 +67,7 @@ function Chats({ route }) {
   const Archieved = () => {
     return (
       <>
-        <Pressable onPress={() => navigate("Archieved")}>
+        <Pressable onPress={() => navigate("Archieved", { name: "chats" })}>
           <HStack mt="5">
             <Center w="20%">
               <Box>
@@ -107,7 +107,7 @@ function Chats({ route }) {
       {
         isFocused &&
         <Fab
-          onPress={() => navigate("SelectContact")}
+          onPress={() => navigate("SelectContact", { name: "chats" })}
           position="absolute"
           size="75"
           icon={<Icon color="white" as={<MaterialIcons name="chat" size={24} color="black" />} size="sm" />}

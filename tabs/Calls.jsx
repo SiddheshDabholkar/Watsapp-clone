@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, memo, useLayoutEffect } from "react";
-import { FlatList, useWindowDimensions } from "react-native";
+import { FlatList } from "react-native";
 import { Fab, Icon, VStack, Center, HStack, Box, Avatar, Text, Pressable } from 'native-base';
 import { useIsFocused, useNavigation, useRoute, useFocusEffect } from '@react-navigation/native';
 import { PopupContext } from "../context/PopupContext";
@@ -29,10 +29,8 @@ const CallLog = [
 const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
 
 function Calls({ route }) {
-  const { height, width } = useWindowDimensions();
   const isFocused = useIsFocused();
   const { navigate } = useNavigation();
-  const navigation = useNavigation();
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
 
   useLayoutEffect(() => {
@@ -74,7 +72,7 @@ function Calls({ route }) {
 
   return (
     <>
-      <Box height={height} bg="#111827">
+      <Box flex={1} bg="#111827">
         <VStack>
           <Center>
             <FlatList
@@ -87,7 +85,7 @@ function Calls({ route }) {
       </Box>
       {isFocused &&
         <Fab
-          onPress={() => navigate("SelectContact")}
+          onPress={() => navigate("SelectContact", { name: "calls" })}
           position="absolute"
           size="75"
           icon={<Icon color="white" as={<MaterialIcons name="add-call" size={24} color="black" />} size="sm" />}
