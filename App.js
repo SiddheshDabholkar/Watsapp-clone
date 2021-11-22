@@ -33,11 +33,8 @@ export default function App() {
         <NativeBaseProvider>
           <NavigationContainer>
             <Stack.Navigator>
+
               <Stack.Screen
-                name="Chat"
-                component={Chat}
-              />
-              {/* <Stack.Screen
                 name="WatsApp"
                 component={WatsApp}
               />
@@ -96,6 +93,10 @@ export default function App() {
                 component={ProfilePhoto}
               />
               <Stack.Screen
+                name="Chat"
+                component={Chat}
+              />
+              <Stack.Screen
                 name="Linked devices"
                 component={Linkedevices}
               />
@@ -110,7 +111,7 @@ export default function App() {
               <Stack.Screen
                 name="Invite a friend"
                 component={InviteAFriend}
-              /> */}
+              />
 
             </Stack.Navigator>
           </NavigationContainer>
