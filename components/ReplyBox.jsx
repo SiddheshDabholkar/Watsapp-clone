@@ -87,21 +87,17 @@ const ReplyBox = ({ isOpen, onOpen, onClose, img, disableOverlay }) => {
                   value={text}
                   style={styles.textInputStyle}
                   ref={inputRef}
-                  onFocus={() => setOpenEmoji(false)}
+                  // onFocus={() => setOpenEmoji(false)}
                 />
               </Box>
-              <Box w="10%">
-                <Center>
-                  <Entypo name="attachment" size={18} color="#a3a3a3" />
-                </Center>
-              </Box>
-              <Box w="10%">
+              <Center w="10%">
+                <Entypo name="attachment" size={18} color="#a3a3a3" />
+              </Center>
+              <Center w="10%">
                 <Pressable onPress={() => navigate("Camera")}>
-                  <Center>
-                    <FontAwesome name="camera" size={18} color="#a3a3a3" />
-                  </Center>
+                  <FontAwesome name="camera" size={18} color="#a3a3a3" />
                 </Pressable>
-              </Box>
+              </Center>
             </HStack>
           </VStack>
           {/* send/audio button component */}
