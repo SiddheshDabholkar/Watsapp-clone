@@ -1,14 +1,19 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import { View, TouchableOpacity } from "react-native";
 import { Camera } from "expo-camera";
-import { Box, Text, HStack, VStack, Center } from 'native-base';
+import { Box, Text, HStack, VStack, Center } from "native-base";
 import CameraRecentPhotos from "../components/CameraRecentPhotos";
-import { Ionicons, MaterialIcons, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
+import {
+  Ionicons,
+  MaterialIcons,
+  Entypo,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 
 export default function CameraComponent({ navigation }) {
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraType, setCameraType] = useState(Camera.Constants.Type.back);
-  const [flashMode, setFlashMode] = useState('off');
+  const [flashMode, setFlashMode] = useState("off");
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,12 +29,12 @@ export default function CameraComponent({ navigation }) {
   }, []);
 
   const handleFlashMode = () => {
-    if (flashMode === 'on') {
-      setFlashMode('off');
-    } else if (flashMode === 'off') {
-      setFlashMode('auto');
+    if (flashMode === "on") {
+      setFlashMode("off");
+    } else if (flashMode === "off") {
+      setFlashMode("auto");
     } else if (flashMode === "auto") {
-      setFlashMode('on');
+      setFlashMode("on");
     }
   };
 
@@ -40,10 +45,10 @@ export default function CameraComponent({ navigation }) {
   // };
 
   const switchCamera = () => {
-    if (cameraType === 'back') {
-      setCameraType('front');
+    if (cameraType === "back") {
+      setCameraType("front");
     } else {
-      setCameraType('back');
+      setCameraType("back");
     }
   };
 
@@ -55,8 +60,8 @@ export default function CameraComponent({ navigation }) {
   }
   return (
     <>
-      <Camera type={cameraType} style={{ flex: 1 }} >
-        <VStack >
+      <Camera type={cameraType} style={{ flex: 1 }} ratio="16:9">
+        <VStack>
           <HStack h="80%" />
           <HStack h="20%">
             <VStack>
@@ -68,12 +73,27 @@ export default function CameraComponent({ navigation }) {
                 <Box w="20%">
                   <Center>
                     <TouchableOpacity onPress={handleFlashMode}>
-                      {
-                        flashMode === "off" ?
-                          <MaterialIcons name="flash-off" size={30} color="white" /> : flashMode === "auto" ?
-                            <MaterialIcons name="flash-auto" size={24} color="white" /> : flashMode === "on" &&
-                            <MaterialCommunityIcons name="flash" size={30} color="white" />
-                      }
+                      {flashMode === "off" ? (
+                        <MaterialIcons
+                          name="flash-off"
+                          size={30}
+                          color="white"
+                        />
+                      ) : flashMode === "auto" ? (
+                        <MaterialIcons
+                          name="flash-auto"
+                          size={24}
+                          color="white"
+                        />
+                      ) : (
+                        flashMode === "on" && (
+                          <MaterialCommunityIcons
+                            name="flash"
+                            size={30}
+                            color="white"
+                          />
+                        )
+                      )}
                     </TouchableOpacity>
                   </Center>
                 </Box>

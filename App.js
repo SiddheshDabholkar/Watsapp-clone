@@ -33,81 +33,33 @@ export default function App() {
         <NativeBaseProvider>
           <NavigationContainer>
             <Stack.Navigator>
-              {/* <Stack.Screen
-                name="WatsApp"
-                component={WatsApp}
-              />
-              <Stack.Screen
-                name="Camera"
-                component={Camera}
-              />
-              <Stack.Screen
-                name="About"
-                component={About}
-              />
-              <Stack.Screen
-                name="Archieved"
-                component={Archieved}
-              />
-              <Stack.Screen
-                name="Profile"
-                component={Profile}
-              />
-              <Stack.Screen
-                name="SelectContact"
-                component={SelectContact}
-              />
-              <Stack.Screen
-                name="Setting"
-                component={Setting}
-              />
-              <Stack.Screen
-                name="Calls Info"
-                component={CallsInfo}
-              />
-              <Stack.Screen
-                name="Status privacy"
-                component={StatusPrivacy}
-              />
+              <Stack.Screen name="WatsApp" component={WatsApp} />
+              <Stack.Screen name="Camera" component={Camera} />
+              <Stack.Screen name="About" component={About} />
+              <Stack.Screen name="Archieved" component={Archieved} />
+              <Stack.Screen name="Profile" component={Profile} />
+              <Stack.Screen name="SelectContact" component={SelectContact} />
+              <Stack.Screen name="Setting" component={Setting} />
+              <Stack.Screen name="Calls Info" component={CallsInfo} />
+              <Stack.Screen name="Status privacy" component={StatusPrivacy} />
 
               <Stack.Screen
                 name="Share status with..."
                 component={ShareStatus}
               />
 
-              <Stack.Screen
-                name="Hide status from..."
-                component={HideStatus}
-              />
-              <Stack.Screen
-                name="Contacts help"
-                component={ContactsHelp}
-              />
+              <Stack.Screen name="Hide status from..." component={HideStatus} />
+              <Stack.Screen name="Contacts help" component={ContactsHelp} />
               <Stack.Screen
                 name="Archive settings"
                 component={ArchiveSettings}
               />
-              <Stack.Screen
-                name="Profile Photo"
-                component={ProfilePhoto}
-              /> */}
+              <Stack.Screen name="Profile Photo" component={ProfilePhoto} />
               <Stack.Screen name="Chat" component={Chat} />
-              {/* <Stack.Screen
-                name="Linked devices"
-                component={Linkedevices}
-              />
-              <Stack.Screen
-                name="SeeStatus"
-                component={SeeStatus}
-              />
-              <Stack.Screen
-                name="ViewContact"
-                component={ViewContact}
-              />
-              <Stack.Screen
-                name="Invite a friend"
-                component={InviteAFriend}
-              /> */}
+              <Stack.Screen name="Linked devices" component={Linkedevices} />
+              <Stack.Screen name="SeeStatus" component={SeeStatus} />
+              <Stack.Screen name="ViewContact" component={ViewContact} />
+              <Stack.Screen name="Invite a friend" component={InviteAFriend} />
             </Stack.Navigator>
           </NavigationContainer>
         </NativeBaseProvider>

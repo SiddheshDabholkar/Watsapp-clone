@@ -105,11 +105,11 @@ const Messages = [
 ];
 
 export default function Chat({ navigation, route }) {
-  // const { id, name, img, time } = route.params;
+  const { id, name, img, time } = route.params;
 
   const Logo = () => (
     <HStack space={1}>
-      {/* <Avatar
+      <Avatar
         alignSelf="center"
         size="md"
         source={{
@@ -119,7 +119,7 @@ export default function Chat({ navigation, route }) {
       <VStack>
         <Text bold>{name}</Text>
         <Text>{time}</Text>
-      </VStack> */}
+      </VStack>
     </HStack>
   );
 
