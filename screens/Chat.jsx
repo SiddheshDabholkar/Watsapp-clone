@@ -1,16 +1,23 @@
 import React, { useLayoutEffect } from "react";
-import { TouchableOpacity, Pressable, FlatList } from "react-native";
+import {
+  TouchableOpacity,
+  Pressable,
+  FlatList,
+  ImageBackground,
+} from "react-native";
 import { Entypo, FontAwesome5, Ionicons } from "@expo/vector-icons";
 import { HStack, Avatar, Box, Text, VStack, Center } from "native-base";
 import ReplyBox from "../components/ReplyBox";
 import Message from "../components/Message";
+import image from "../assets/watsapp.jpeg";
 
 const Messages = [
   {
     userId: 1,
     id: 1,
     name: "one",
-    message: "lmao",
+    message:
+      "lmao lorem Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     time: "1/1/21",
   },
   {
@@ -52,7 +59,8 @@ const Messages = [
     userId: 2,
     id: 7,
     name: "seven",
-    message: "lol",
+    message:
+      "lol Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     time: "6/6/21",
   },
   {
@@ -126,15 +134,17 @@ export default function Chat({ navigation, route }) {
   return (
     <>
       <Box flex={1} bg="#000">
-        <Box flex={1} p="3%">
-          <FlatList
-            data={Messages}
-            renderItem={Message}
-            inverted
-            keyExtractor={(item) => item.id}
-          />
-        </Box>
-        <ReplyBox isOpen={true} />
+        <ImageBackground source={image} resizeMode="cover" style={{ flex: 1 }}>
+          <Box flex={1} p="3%">
+            <FlatList
+              data={Messages}
+              renderItem={Message}
+              inverted
+              keyExtractor={(item) => item.id}
+            />
+          </Box>
+          <ReplyBox isOpen={true} />
+        </ImageBackground>
       </Box>
     </>
   );

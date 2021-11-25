@@ -6,14 +6,16 @@ export default function Message({ item }) {
   return (
     <Box
       w="100%"
-      alignItems={`flex-${me ? "start" : "end"}`}
-      justifyContent={`flex-${me ? "start" : "end"}`}
+      alignItems={`flex-${me ? "end" : "start"}`}
+      justifyContent={`flex-${me ? "end" : "start"}`}
       mt="2"
     >
-      <Box w="70%" bg="blue.500" borderRadius="5">
+      <Box w="70%" bg={!me ? "#262d31" : "#056162"} borderRadius="5">
+        {/* <Box style={{ alignSelf: "flex-start" }}> */}
         <Text color="#fff" p="2">
           {item?.message}
         </Text>
+        {/* </Box> */}
       </Box>
     </Box>
   );
