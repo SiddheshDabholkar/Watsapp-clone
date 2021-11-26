@@ -4,6 +4,7 @@ import React, {
   memo,
   useLayoutEffect,
   useRef,
+  useState,
 } from "react";
 import { useWindowDimensions, FlatList } from "react-native";
 import {
@@ -24,10 +25,12 @@ import {
 } from "@react-navigation/native";
 import { PopupContext } from "../context/PopupContext";
 import { MaterialIcons, Feather } from "@expo/vector-icons";
+import useModal from "../hooks/useModal";
+import ProfileModal from "../components/ProfileModal";
 
 const ChatsList = [
   {
-    img: "",
+    img: "https://reactnative.dev/img/tiny_logo.png",
     id: 1,
     name: "one",
     message: "lmao",
@@ -173,11 +176,13 @@ const ChatsList = [
 ];
 
 function Chats({ route }) {
+  const [data, setData] = useState(null);
   const flat = useRef(null);
   const isFocused = useIsFocused();
   const { height, width } = useWindowDimensions();
   const { navigate } = useNavigation();
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
+  const { Modal, show, setShow, toggle } = useModal(ProfileModal);
 
   useLayoutEffect(() => {
     isFocused && setCurrentTabName({ type: "CHATS", payload: "CHATS" });
@@ -198,9 +203,16 @@ function Chats({ route }) {
         >
           <HStack space="1" mt="6">
             <Center w="20%">
-              <Box>
-                <Avatar bg="blue.500" />
-              </Box>
+              <Pressable
+                onPress={() => {
+                  setShow(true);
+                  setData(item);
+                }}
+              >
+                <Box>
+                  <Avatar bg="blue.500" />
+                </Box>
+              </Pressable>
             </Center>
             <Center w="60%" alignItems="flex-start">
               <Box>
@@ -261,6 +273,9 @@ function Chats({ route }) {
             />
           </Center>
         </VStack>
+        {show && (
+          <Modal show={show} setShow={setShow} toggle={toggle} data={data} />
+        )}
       </Box>
       {isFocused && (
         <Fab
