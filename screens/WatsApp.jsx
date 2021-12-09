@@ -37,7 +37,6 @@ function WatsApp({ navigation, route }) {
       headerTitleStyle: {
         fontWeight: "bold",
       },
-
       headerRight: () => (
         <>
           <PopoverThreeButton
@@ -62,6 +61,9 @@ function WatsApp({ navigation, route }) {
           tabBarLabelStyle: { fontSize: 14, fontWeight: "bold" },
           tabBarActiveTintColor: "#047857",
           tabBarInactiveTintColor: "gray",
+          tabBarIndicatorStyle: {
+            backgroundColor: "#047857",
+          },
         })}
       >
         <Tab.Screen name="Chats" component={Chats} />
