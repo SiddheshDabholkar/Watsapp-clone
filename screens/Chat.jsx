@@ -117,25 +117,28 @@ export default function Chat({ navigation, route }) {
         }}
       />
       <VStack>
-        <Text bold>{name}</Text>
-        <Text>{time}</Text>
+        <Text bold color="#fff">
+          {name}
+        </Text>
+        <Text color="#fff">{time}</Text>
       </VStack>
     </HStack>
   );
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      headerTintColor: "#fff",
       headerTitle: (props) => <Logo {...props} />,
       headerRight: () => (
         <HStack space={6}>
           <TouchableOpacity>
-            <FontAwesome5 name="video" size={18} color="black" />
+            <FontAwesome5 name="video" size={18} color="#fff" />
           </TouchableOpacity>
           <TouchableOpacity>
-            <Ionicons name="md-call" size={18} color="black" />
+            <Ionicons name="md-call" size={18} color="#fff" />
           </TouchableOpacity>
           <TouchableOpacity>
-            <Entypo name="dots-three-vertical" size={18} color="black" />
+            <Entypo name="dots-three-vertical" size={18} color="#fff" />
           </TouchableOpacity>
         </HStack>
       ),

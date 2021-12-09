@@ -42,7 +42,9 @@ export default function SeeStatus({ navigation, route }) {
       headerTitleStyle: {
         color: "#fff",
       },
-      headerRight: () => <PopoverThreeButton data={Data} color="#fff" />,
+      headerRight: () => (
+        <PopoverThreeButton data={Data} color="#fff" isSearch={false} />
+      ),
       headerTitle: (props) => (
         <TouchableOpacity onPress={() => navigation.navigate("ViewContact")}>
           <HStack {...props} space={2} alignItems="flex-start">

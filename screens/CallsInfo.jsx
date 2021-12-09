@@ -52,8 +52,10 @@ export default function CallsInfo({ navigation, route }) {
             <TouchableOpacity>
               <Box p={2}>
                 <Icon
-                  as={<MaterialIcons name="chat" size={24} color="black" />}
+                  as={<MaterialIcons />}
                   size="sm"
+                  name="chat"
+                  color="gray.500"
                 />
               </Box>
             </TouchableOpacity>

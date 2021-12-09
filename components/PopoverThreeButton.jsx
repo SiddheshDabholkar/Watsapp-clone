@@ -13,7 +13,12 @@ import { FontAwesome } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
-export default function PopoverThreeButton({ children, data, color }) {
+export default function PopoverThreeButton({
+  children,
+  data,
+  color,
+  isSearch = true,
+}) {
   const [show, setShow] = useState(false);
   const inputRef = useRef(null);
   const navigation = useNavigation();
@@ -31,9 +36,11 @@ export default function PopoverThreeButton({ children, data, color }) {
 
   return (
     <>
-      <TouchableOpacity onPress={handleSearchPress}>
-        <FontAwesome name="search" size={18} color="gray" />
-      </TouchableOpacity>
+      {isSearch && (
+        <TouchableOpacity onPress={handleSearchPress}>
+          <FontAwesome name="search" size={18} color="gray" />
+        </TouchableOpacity>
+      )}
       <Popover
         on="press"
         placement="left"
