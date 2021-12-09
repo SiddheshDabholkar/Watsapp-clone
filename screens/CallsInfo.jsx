@@ -65,7 +65,7 @@ export default function CallsInfo({ navigation, route }) {
   }, [navigation]);
 
   return (
-    <Box flex={1} bg="#111827" p="4">
+    <Box flex={1} bg="#101820" p="4">
       <VStack>
         <Center>
           <HStack>

@@ -45,7 +45,7 @@ const ReplyBox = ({ isOpen, onOpen, onClose, img, disableOverlay }) => {
       <VStack>
         <HStack p="2">
           {/* reply modal */}
-          <VStack w="85%" bg="#111827" p="2" borderRadius="10">
+          <VStack w="85%" bg="#101820" p="2" borderRadius="10">
             {img && (
               <HStack bg="red.500" borderRadius="6">
                 <VStack w="85%">

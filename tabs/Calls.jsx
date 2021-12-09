@@ -362,7 +362,8 @@ function Calls({ route }) {
         <Fab
           onPress={() => navigate("SelectContact", { name: "calls" })}
           position="absolute"
-          size="75"
+          size="60"
+          style={{ backgroundColor: "#009658" }}
           icon={
             <Icon
               color="white"

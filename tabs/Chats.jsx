@@ -262,7 +262,7 @@ function Chats({ route }) {
 
   return (
     <>
-      <Box height={height} bg="#111827">
+      <Box height={height} bg="#101820">
         <VStack>
           <Center>
             <FlatList
@@ -281,7 +281,8 @@ function Chats({ route }) {
         <Fab
           onPress={() => navigate("SelectContact", { name: "chats" })}
           position="absolute"
-          size="75"
+          size="60"
+          style={{ backgroundColor: "#009658" }}
           icon={
             <Icon
               color="white"

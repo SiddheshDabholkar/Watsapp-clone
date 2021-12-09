@@ -1,12 +1,17 @@
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
-import { Box, VStack, HStack, Center, Icon, Text, Divider } from 'native-base';
-import { FontAwesome5, MaterialCommunityIcons, AntDesign, Foundation } from '@expo/vector-icons';
+import { Box, VStack, HStack, Center, Icon, Text, Divider } from "native-base";
+import {
+  FontAwesome5,
+  MaterialCommunityIcons,
+  AntDesign,
+  Foundation,
+} from "@expo/vector-icons";
 import ProfileAvatar from "../components/ProfileAvatar";
 
 export default function Profile() {
   return (
-    <Box flex={1} bg="#111827" p={6} >
+    <Box flex={1} bg="#101820" p={6}>
       <Center>
         <VStack>
           <Center p={5}>
@@ -27,7 +32,9 @@ export default function Profile() {
                 <HStack>
                   <Box w="90%">
                     <Text color="#fff">Name</Text>
-                    <Text bold color="#fff">Siddhesh</Text>
+                    <Text bold color="#fff">
+                      Siddhesh
+                    </Text>
                   </Box>
                   <Box w="10%">
                     <TouchableOpacity>
@@ -41,7 +48,10 @@ export default function Profile() {
                   </Box>
                 </HStack>
                 <Box mt={2}>
-                  <Text color="#fff">This is not your username or pin. This name will be visible to your watsapp contacts</Text>
+                  <Text color="#fff">
+                    This is not your username or pin. This name will be visible
+                    to your watsapp contacts
+                  </Text>
                 </Box>
               </VStack>
               <Divider bg="#52525b" thickness="0.5" my={3} />
@@ -61,7 +71,9 @@ export default function Profile() {
               <HStack>
                 <Box w="90%">
                   <Text color="#fff">About</Text>
-                  <Text bold color="#fff">Sleeping</Text>
+                  <Text bold color="#fff">
+                    Sleeping
+                  </Text>
                 </Box>
                 <Box w="10%">
                   <TouchableOpacity>
@@ -89,11 +101,13 @@ export default function Profile() {
             </Box>
             <Box w="85%" alignItems="flex-start">
               <Text color="#fff">Phone</Text>
-              <Text bold color="#fff">+91 9876543221</Text>
+              <Text bold color="#fff">
+                +91 9876543221
+              </Text>
             </Box>
           </HStack>
         </VStack>
       </Center>
-    </Box >
+    </Box>
   );
 }

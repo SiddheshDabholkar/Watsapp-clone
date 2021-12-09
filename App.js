@@ -32,7 +32,14 @@ export default function App() {
       <PopupContextProvider>
         <NativeBaseProvider>
           <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator
+              screenOptions={{
+                headerStyle: {
+                  backgroundColor: "#1e2229",
+                },
+                headerTintColor: "gray",
+              }}
+            >
               <Stack.Screen name="WatsApp" component={WatsApp} />
               <Stack.Screen name="Camera" component={Camera} />
               <Stack.Screen name="About" component={About} />

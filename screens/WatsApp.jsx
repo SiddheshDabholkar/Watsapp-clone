@@ -3,9 +3,14 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import PopoverThreeButton from "../components/PopoverThreeButton";
 import { PopupContext } from "../context/PopupContext";
 
-
-const CallsData = [{ id: "1", navigateTo: "", name: "Clear call log" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
-const StatusData = [{ id: "1", navigateTo: "Status privacy", name: "Status privacy" }, { id: "2", navigateTo: "Setting", name: "Setting" }];
+const CallsData = [
+  { id: "1", navigateTo: "", name: "Clear call log" },
+  { id: "2", navigateTo: "Setting", name: "Setting" },
+];
+const StatusData = [
+  { id: "1", navigateTo: "Status privacy", name: "Status privacy" },
+  { id: "2", navigateTo: "Setting", name: "Setting" },
+];
 const ChatsData = [
   { id: "1", navigateTo: "", name: "New Group" },
   { id: "2", navigateTo: "", name: "New Broadcast" },
@@ -22,7 +27,6 @@ import Camera from "./Camera";
 
 const Tab = createMaterialTopTabNavigator();
 
-
 function WatsApp({ navigation, route }) {
   const { CurrentTabName, setCurrentTabName } = useContext(PopupContext);
   const activeTab = CurrentTabName.activeTab;
@@ -33,9 +37,18 @@ function WatsApp({ navigation, route }) {
       headerTitleStyle: {
         fontWeight: "bold",
       },
+
       headerRight: () => (
         <>
-          <PopoverThreeButton data={activeTab === "CALLS" ? CallsData : activeTab === "CHATS" ? ChatsData : activeTab === "STATUS" && StatusData} />
+          <PopoverThreeButton
+            data={
+              activeTab === "CALLS"
+                ? CallsData
+                : activeTab === "CHATS"
+                ? ChatsData
+                : activeTab === "STATUS" && StatusData
+            }
+          />
         </>
       ),
     });
@@ -43,7 +56,14 @@ function WatsApp({ navigation, route }) {
 
   return (
     <>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarStyle: { backgroundColor: "#1e2229" },
+          tabBarLabelStyle: { fontSize: 14, fontWeight: "bold" },
+          tabBarActiveTintColor: "#047857",
+          tabBarInactiveTintColor: "gray",
+        })}
+      >
         <Tab.Screen name="Chats" component={Chats} />
         <Tab.Screen name="Status" component={Status} />
         <Tab.Screen name="Calls" component={Calls} />
@@ -51,7 +71,5 @@ function WatsApp({ navigation, route }) {
     </>
   );
 }
-
-
 
 export default memo(WatsApp);
