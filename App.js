@@ -23,8 +23,16 @@ import SeeStatus from "./screens/SeeStatus";
 import ViewContact from "./screens/ViewContact";
 import InviteAFriend from "./screens/InviteAFriend";
 import Chat from "./screens/Chat";
+import { connectToDevTools } from "react-devtools-core";
 
 const Stack = createNativeStackNavigator();
+
+if (__DEV__) {
+  connectToDevTools({
+    host: "localhost",
+    port: 8097,
+  });
+}
 
 export default function App() {
   return (
