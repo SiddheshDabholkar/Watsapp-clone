@@ -25,6 +25,8 @@ import InviteAFriend from "./screens/InviteAFriend";
 import Chat from "./screens/Chat";
 import { connectToDevTools } from "react-devtools-core";
 
+import WelcomeToWatsapp from "./PreAuthScreens/WelcomeToWatsapp";
+
 const Stack = createNativeStackNavigator();
 
 if (__DEV__) {
@@ -48,6 +50,13 @@ export default function App() {
                 headerTintColor: "gray",
               }}
             >
+              <Stack.Screen
+                name="WelcomeToWatsapp"
+                component={WelcomeToWatsapp}
+                options={{
+                  headerShown: false,
+                }}
+              />
               <Stack.Screen name="WatsApp" component={WatsApp} />
               <Stack.Screen name="Camera" component={Camera} />
               <Stack.Screen name="About" component={About} />

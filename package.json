@@ -16,6 +16,7 @@
     "expo-community-flipper": "^43.0.5",
     "expo-contacts": "~10.0.3",
     "expo-dev-client": "~0.6.3",
+    "expo-font": "~10.0.3",
     "expo-image-picker": "~11.0.3",
     "expo-media-library": "~13.0.3",
     "expo-status-bar": "~1.1.0",
