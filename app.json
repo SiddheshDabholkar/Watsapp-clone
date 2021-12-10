@@ -1,5 +1,6 @@
 {
   "expo": {
+    "jsEngine": "hermes",
     "name": "watsapp-clone",
     "slug": "watsapp-clone",
     "version": "1.0.0",
@@ -32,5 +33,6 @@
     "plugins": [
       "expo-community-flipper"
     ]
+  
   }
 }

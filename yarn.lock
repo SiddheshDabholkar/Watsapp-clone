@@ -6437,10 +6437,10 @@ react-native-emoji-input@^1.1.10:
     react-native-vector-icons "^4.5.0"
     recyclerlistview "^1.3.4"
 
-react-native-flipper@^0.123.0:
-  version "0.123.0"
-  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.123.0.tgz#06972ea704962fcffd42db63bdaed3d8f6fcce84"
-  integrity sha512-pWFf/Z9ljZvATciXPnuNGn+gjd57bQzkUNmnhUKk/MZM6oh4zhEb3/Idh1bDwqulW81Sk5H1tXCQmdSRlqwKMQ==
+react-native-flipper@^0.124.0:
+  version "0.124.0"
+  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.124.0.tgz#dd6036032f0b9fef55b12c9f35e232a1abc1ce93"
+  integrity sha512-YWcOWuZykwwPl+UHw088+7sPmPt+nvVc4ljWNHsCjq0gZyivA23JED0C/y+cOTWx6dOQmhhme3j1lhre8epA5A==
 
 react-native-pager-view@5.4.6:
   version "5.4.6"
@@ -6529,10 +6529,10 @@ react-native-web@0.17.1:
     normalize-css-color "^1.0.2"
     prop-types "^15.6.0"
 
-react-native@0.64.2:
-  version "0.64.2"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.64.2.tgz#233b6ed84ac4749c8bc2a2d6cf63577a1c437d18"
-  integrity sha512-Ty/fFHld9DcYsFZujXYdeVjEhvSeQcwuTGXezyoOkxfiGEGrpL/uwUZvMzwShnU4zbbTKDu2PAm/uwuOittRGA==
+react-native@0.64.3:
+  version "0.64.3"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.64.3.tgz#40db6385963b4b17325f9cc86dd19132394b03fc"
+  integrity sha512-2OEU74U0Ek1/WeBzPbg6XDsCfjF/9fhrNX/5TFgEiBKd5mNc9LOZ/OlMmkb7iues/ZZ/oc51SbEfLRQdcW0fVw==
   dependencies:
     "@jest/create-cache-key-function" "^26.5.0"
     "@react-native-community/cli" "^5.0.1-alpha.1"
