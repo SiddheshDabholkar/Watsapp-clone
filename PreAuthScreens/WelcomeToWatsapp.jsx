@@ -1,20 +1,11 @@
 import React from "react";
-import {
-  Box,
-  Text,
-  VStack,
-  Center,
-  Button,
-  HStack,
-  Image,
-  Avatar,
-} from "native-base";
+import { Box, Text, VStack, Center, Button, HStack, Image } from "native-base";
 import FromFacebook from "../components/FromFacebook";
-import image from "../assets/watsapp.jpeg";
 
 export default function WelcomeToWatsapp() {
   return (
-    <Box flex={1} bg="#101820">
+    // <Box flex={1} bg="#101820">
+    <Box flex={1} bg="#000">
       <VStack>
         <Box h="92%">
           <VStack space={2}>
@@ -31,23 +22,20 @@ export default function WelcomeToWatsapp() {
                   style={{
                     borderRadius: 125,
                   }}
-                  // source={{
-                  //   uri: "https://wallpaperaccess.com/full/317501.jpg",
-                  // }}
                   source={require("../assets/watsapp.jpeg")}
                   alt="Alternate Text"
                   size="250"
                 />
               </Center>
             </HStack>
-            <HStack h="34%" p="6">
+            <HStack h="34%">
               <Center>
-                <VStack>
+                <VStack p="6">
                   <Text style={{ textAlign: "center" }} color="gray.400">
                     Read our
                     <Text color="blue.300">Privacy Policy</Text>
                     .Tap "Agree and continue" to accept the
-                    <Text color="blue.300">Terms of Service</Text>
+                    <Text color="blue.300"> Terms of Service</Text>
                   </Text>
                   <Center>
                     <Button w="3/4" bg="#047857" mt="4">
