@@ -13,6 +13,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { KeyboardAvoidingView, Pressable } from "react-native";
 
 export default function EnterYourPhoneNumber({ navigation }) {
+  const { navigate } = navigation;
   return (
     <VStack flex={1} bg="#111827">
       <Box h="90%" p="1" mt="2">
@@ -35,9 +36,7 @@ export default function EnterYourPhoneNumber({ navigation }) {
                 textAlign="center"
                 placeholder="select country"
                 InputRightElement={
-                  <Pressable
-                    onPress={() => navigation.navigate("Choose A Country")}
-                  >
+                  <Pressable onPress={() => navigate("Choose A Country")}>
                     <Icon
                       as={<AntDesign name="caretdown" />}
                       size={5}
@@ -84,7 +83,9 @@ export default function EnterYourPhoneNumber({ navigation }) {
       </Box>
       <Box h="10%">
         <Center>
-          <Button bg="#047857">NEXT</Button>
+          <Button bg="#047857" onPress={() => navigate("VerifyPhoneNumber")}>
+            NEXT
+          </Button>
         </Center>
       </Box>
     </VStack>

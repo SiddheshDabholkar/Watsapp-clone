@@ -28,6 +28,7 @@ import { connectToDevTools } from "react-devtools-core";
 import WelcomeToWatsapp from "./PreAuthScreens/WelcomeToWatsapp";
 import EnterYourPhoneNumber from "./PreAuthScreens/EnterYourPhoneNumber";
 import ChooseACountry from "./PreAuthScreens/ChooseACountry";
+import VerifyPhoneNumber from "./PreAuthScreens/VerifyPhoneNumber";
 
 const Stack = createNativeStackNavigator();
 
@@ -62,6 +63,13 @@ export default function App() {
               <Stack.Screen
                 name="EnterYourPhoneNumber"
                 component={EnterYourPhoneNumber}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="VerifyPhoneNumber"
+                component={VerifyPhoneNumber}
                 options={{
                   headerShown: false,
                 }}
