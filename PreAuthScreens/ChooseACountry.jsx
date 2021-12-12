@@ -1,12 +1,13 @@
-import React, { memo, useMemo, useRef } from "react";
-import { Dimensions } from "react-native";
+import React, { memo, useMemo, useLayoutEffect, useState, useRef } from "react";
+import { Dimensions, TouchableOpacity } from "react-native";
 import {
   RecyclerListView,
   DataProvider,
   LayoutProvider,
 } from "recyclerlistview";
 import { countries } from "country-data";
-import { Box, HStack, Text, Center } from "native-base";
+import { Box, HStack, Text, Center, Icon, Input } from "native-base";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 
 const ViewTypes = {
   FULL: 0,
@@ -58,7 +59,9 @@ const rowRenderer = (type, data) => {
         <Text color="#fff">{countryCallingCodes[0]}</Text>
       </Box>
       <Center>
-        <Box w="10%">y</Box>
+        <Box w="10%">
+          <Icon as={<AntDesign />} size="sm" name="check" color="#009658" />
+        </Box>
       </Center>
     </HStack>
   );
@@ -67,16 +70,75 @@ const rowRenderer = (type, data) => {
 const dataProviderMaker = (data) =>
   new DataProvider((r1, r2) => r1 !== r2).cloneWithRows(data);
 
-const ChooseACountry = memo(() => {
+const ChooseACountry = memo(({ navigation }) => {
+  const [show, setShow] = useState(false);
+  const [search, onChangeSearch] = useState("");
+
   const country = countries.all;
+  const SearchedCountry = country.filter((d) => {
+    return d.name.includes(search);
+  });
+
+  const data = SearchedCountry.length > 0 ? SearchedCountry : country;
+
   const _layoutProvider = useRef(layoutMaker()).current;
-  const listView = useRef();
-  const dataProvider = useMemo(() => dataProviderMaker(country), [country]);
+  const dataProvider = useMemo(() => dataProviderMaker(data), [data]);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        if (!show) {
+          return (
+            <TouchableOpacity onPress={() => setShow(!show)}>
+              <Box p="2">
+                <Ionicons name="search" size={24} color="#fff" />
+              </Box>
+            </TouchableOpacity>
+          );
+        } else return null;
+      },
+      headerLeft: () => {
+        if (show) {
+          return (
+            <TouchableOpacity onPress={() => setShow(!show)}>
+              <Box p="2">
+                <Ionicons name="arrow-back-sharp" size={24} color="#fff" />
+              </Box>
+            </TouchableOpacity>
+          );
+        } else return false;
+      },
+      headerTitle: (props) => {
+        if (show) {
+          return (
+            <Input
+              variant="unstyled"
+              color="#fff"
+              fontSize={18}
+              value={search}
+              onChangeText={onChangeSearch}
+              placeholder="Search countries"
+              placeholderTextColor="gray.500"
+              width="88%"
+              selectionColor={"#fff"}
+            />
+          );
+        } else {
+          return (
+            <Text color="#fff" bold fontSize={20}>
+              {props.children}
+            </Text>
+          );
+        }
+      },
+      headerBackVisible: show ? false : true,
+      headerTintColor: "#fff",
+    });
+  }, [navigation, show, search]);
 
   return (
     <Box flex={1} bg="#111827">
       <RecyclerListView
-        ref={listView}
         layoutProvider={_layoutProvider}
         dataProvider={dataProvider}
         rowRenderer={rowRenderer}
