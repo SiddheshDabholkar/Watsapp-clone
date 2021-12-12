@@ -11,7 +11,7 @@
     "@react-navigation/material-top-tabs": "^6.0.6",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
-    "country-flag-emoji": "^1.0.3",
+    "country-data": "^0.0.31",
     "expo": "~43.0.0",
     "expo-camera": "~12.0.3",
     "expo-community-flipper": "^43.0.5",
@@ -36,6 +36,7 @@
     "react-native-svg": "12.1.1",
     "react-native-tab-view": "^3.1.1",
     "react-native-web": "0.17.1",
+    "recyclerlistview": "^3.0.5",
     "rn-emoji-keyboard": "^0.6.0",
     "styled-components": "^5.3.3",
     "styled-system": "^5.1.5"
