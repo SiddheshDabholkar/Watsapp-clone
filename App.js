@@ -29,6 +29,7 @@ import WelcomeToWatsapp from "./PreAuthScreens/WelcomeToWatsapp";
 import EnterYourPhoneNumber from "./PreAuthScreens/EnterYourPhoneNumber";
 import ChooseACountry from "./PreAuthScreens/ChooseACountry";
 import VerifyPhoneNumber from "./PreAuthScreens/VerifyPhoneNumber";
+import ProfileInfo from "./PreAuthScreens/ProfileInfo";
 
 const Stack = createNativeStackNavigator();
 
@@ -70,6 +71,13 @@ export default function App() {
               <Stack.Screen
                 name="VerifyPhoneNumber"
                 component={VerifyPhoneNumber}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="ProfileInfo"
+                component={ProfileInfo}
                 options={{
                   headerShown: false,
                 }}

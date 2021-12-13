@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
 
 export default function useModal(Component) {
   const [show, setShow] = useState(false);
