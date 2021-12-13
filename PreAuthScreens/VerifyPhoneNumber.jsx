@@ -33,10 +33,11 @@ const VerifyPhoneNumber = memo(() => {
         <VStack space={3}>
           <Input
             color="#fff"
-            fontSize={16}
+            textAlign="center"
+            fontSize={18}
             variant="underlined"
+            maxLength={6}
             placeholder="phone number"
-            maxLength={10}
             keyboardType="number-pad"
           />
           <Text color="gray.400" fontSize={14}>
