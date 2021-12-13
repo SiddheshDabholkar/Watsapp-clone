@@ -1,36 +1,29 @@
-import { ApolloServer } from "apollo-server-fastify";
-import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
 import fastify from "fastify";
-import { typeDefs } from "./graphql/typeDefs";
-import { resolvers } from "./graphql/resolvers";
+import mercurius from "mercurius";
+import db from "./ConnectDB";
 
-function fastifyAppClosePlugin(app) {
-  return {
-    async serverWillStart() {
-      return {
-        async drainServer() {
-          await app.close();
-        },
-      };
-    },
-  };
-}
+import Resolvers from "./graphql/resolvers";
+// import TypeDefs from "./graphql/typeDefs";
+import TypeDefs from "./graphql/one.graphql";
 
-async function startApolloServer(typeDefs, resolvers) {
-  const app = fastify();
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    plugins: [
-      fastifyAppClosePlugin(app),
-      ApolloServerPluginDrainHttpServer({ httpServer: app.server }),
-    ],
-  });
+const Port = process.env.PORT || 4500;
+const uri = process.env.MONGO_URI;
 
-  await server.start();
-  app.register(server.createHandler());
-  await app.listen(4000);
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
-}
+const app = fastify({ logger: true });
 
-startApolloServer(typeDefs, resolvers);
+app.register(db, { uri });
+app.register(mercurius, {
+  Resolvers,
+  TypeDefs,
+  graphiql: "playground",
+});
+
+const start = async () => {
+  try {
+    await app.listen(Port);
+  } catch (err) {
+    app.log.error(err);
+    process.exit(1);
+  }
+};
+start();

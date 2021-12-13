@@ -1,6 +1,6 @@
-const { gql } = require("apollo-server-core");
+import gql from "graphql-tag";
 
-module.exports = gql`
+const Schmea = gql`
   scalar Date
   type User {
     id: ID!

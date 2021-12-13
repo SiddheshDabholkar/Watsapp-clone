@@ -1,5 +1,5 @@
-const { model, Schema } = require("mongoose");
+import { model, Schema } from "mongoose";
 const { ObjectId } = Schema.Types;
 
 const userSchema = new Schema({}, { timestamps: true });
-module.exports = model("User", userSchema);
+export default model("User", userSchema);

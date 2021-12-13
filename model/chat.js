@@ -1,5 +1,5 @@
-const { model, Schema } = require("mongoose");
+import { model, Schema } from ("mongoose");
 const { ObjectId } = Schema.Types;
 
 const chatSchema = new Schema({}, { timestamps: true });
-module.exports = model("Chat", chatSchema);
+export default  model("Chat", chatSchema);
