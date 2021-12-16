@@ -1,11 +1,14 @@
-import { model, Schema } from ("mongoose");
+const { model, Schema } = require("mongoose");
 const { ObjectId } = Schema.Types;
 
-const chatSchema = new Schema({
-    user:{
-        type:ObjectId,
-        ref:"User"
+const chatSchema = new Schema(
+  {
+    user: {
+      type: ObjectId,
+      ref: "User",
     },
-    message:String,
-}, { timestamps: true });
-export default  model("Chat", chatSchema);
+    message: String,
+  },
+  { timestamps: true }
+);
+module.exports = model("Chat", chatSchema);

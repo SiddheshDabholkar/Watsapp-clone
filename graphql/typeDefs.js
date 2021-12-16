@@ -1,6 +1,6 @@
-import gql from "graphql-tag";
+const { gql } = require("apollo-server-core");
 
-const typeDefs = gql`
+module.exports = gql`
   scalar Date
 
   type User {
@@ -30,6 +30,12 @@ const typeDefs = gql`
     createdAt: Date!
     updatedAt: Date!
   }
-`;
 
-export default typeDefs;
+  type Query {
+    getUsers: [User]
+  }
+
+  type Mutation {
+    register(name: String, phone: String): User
+  }
+`;

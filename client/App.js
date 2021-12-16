@@ -3,6 +3,7 @@ import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { PopupContextProvider } from "./context/PopupContext";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 //screens
 import WatsApp from "./screens/WatsApp";
 import Camera from "./screens/Camera";
@@ -31,6 +32,11 @@ import ChooseACountry from "./PreAuthScreens/ChooseACountry";
 import VerifyPhoneNumber from "./PreAuthScreens/VerifyPhoneNumber";
 import ProfileInfo from "./PreAuthScreens/ProfileInfo";
 
+const client = new ApolloClient({
+  uri: "localhost:4000/graphql",
+  cache: new InMemoryCache(),
+});
+
 const Stack = createNativeStackNavigator();
 
 if (__DEV__) {
@@ -43,6 +49,7 @@ if (__DEV__) {
 export default function App() {
   return (
     <>
+      {/* <ApolloProvider client={client}> */}
       <PopupContextProvider>
         <NativeBaseProvider>
           <NavigationContainer>
@@ -119,6 +126,7 @@ export default function App() {
           </NavigationContainer>
         </NativeBaseProvider>
       </PopupContextProvider>
+      {/* </ApolloProvider> */}
     </>
   );
 }
