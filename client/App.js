@@ -32,10 +32,10 @@ import ChooseACountry from "./PreAuthScreens/ChooseACountry";
 import VerifyPhoneNumber from "./PreAuthScreens/VerifyPhoneNumber";
 import ProfileInfo from "./PreAuthScreens/ProfileInfo";
 
-const client = new ApolloClient({
-  uri: "localhost:4000/graphql",
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   uri: "127.0.0.1:4000/graphql",
+//   // cache: new InMemoryCache(),
+// });
 
 const Stack = createNativeStackNavigator();
 
