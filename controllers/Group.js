@@ -19,7 +19,7 @@ exports.create = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   Group.findByIdAndRemove({ id }).then((gr) => res.status(200).send(gr));
 };
 
