@@ -62,3 +62,18 @@ exports.deleteUser = (req, res) => {
     res.status(500).json({ message: "something went wrong" });
   }
 };
+
+exports.edit = async (req, res) => {
+  const { id } = req.params;
+  const { name, description } = req.body;
+  try {
+    await Group.findByIdAndUpdate(id, {
+      $set: {
+        name,
+        description,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({ message: "something went wrong" });
+  }
+};
