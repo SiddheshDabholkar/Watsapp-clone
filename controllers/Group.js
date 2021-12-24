@@ -41,3 +41,24 @@ exports.addUsers = (req, res) => {
     console.log(err);
   }
 };
+
+exports.deleteUser = (req, res) => {
+  const { Id, groupId } = req.params;
+  if (!Id) {
+    throw new Error("id is null or undefined,Send id in params");
+  }
+  if (!groupId) {
+    throw new Error("groupId is null or undefined,Send groupId in params");
+  }
+  try {
+    Group.findByIdAndUpdate(
+      groupId,
+      {
+        $pull: { users: { Id } },
+      },
+      { upsert: true }
+    );
+  } catch (err) {
+    res.status(500).json({ message: "something went wrong" });
+  }
+};
