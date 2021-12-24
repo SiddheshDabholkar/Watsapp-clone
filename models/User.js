@@ -18,6 +18,7 @@ const UserSchema = new Schema(
       type: String,
     },
     groups: [{ type: ObjectId, ref: "Groups" }],
+    groupAdmin: [{ type: ObjectId, ref: "Groups" }],
   },
   {
     timestamps: true,

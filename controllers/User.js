@@ -4,7 +4,7 @@ const User = require("../models/User");
 exports.login = (req, res) => {
   const { name, phone, profilePic, about } = req.body;
   try {
-    !name && res.json({ error: "Username cannot be null" });
+    !name && res.json({ error: "Username cannot be empty" });
     !phone && res.json({ error: "Phone number cannot be empty" });
     User.findOne({ phone }).then((userExists) => {
       if (userExists) {
