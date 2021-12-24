@@ -30,3 +30,25 @@ exports.login = (req, res) => {
     console.log(err);
   }
 };
+
+exports.edit = async (req, res) => {
+  const { id } = req.params;
+  const { name, phone, profilePic, about, groups, groupAdmin } = req.body;
+  if (!id) {
+    throw new Error("you forgot to include user id in params");
+  }
+  try {
+    User.findByIdAndUpdate(id, {
+      $set: {
+        name,
+        phone,
+        profilePic,
+        about,
+        groups,
+        groupAdmin,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
