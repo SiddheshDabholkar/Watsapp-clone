@@ -17,3 +17,8 @@ exports.create = (req, res) => {
     console.log(err);
   }
 };
+
+exports.delete = (req, res) => {
+  const { id } = req.body;
+  Group.findByIdAndRemove({ id }).then((gr) => res.status(200).send(gr));
+};
